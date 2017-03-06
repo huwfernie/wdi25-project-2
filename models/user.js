@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   imageProfile: String,
   imageHero: String,
   nearestAirport: String,
-  favourites: []
+  favourites: [],
+  bio: String
 });
 
 userSchema

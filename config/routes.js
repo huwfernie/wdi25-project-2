@@ -4,6 +4,7 @@ const sessions = require('../controllers/sessions');
 //const secureRoute = require('../lib/secureRoute');
 const trip = require('../controllers/trip');
 const users = require('../controllers/users');
+const upload = require('../lib/upload');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -37,7 +38,8 @@ router.route('/users') // users all
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show);
+  .get(users.show)
+  .post(upload.single('filename'), users.createImage);
 
 router.all('*', (req, res) => res.notFound());
 

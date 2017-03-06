@@ -5,7 +5,8 @@ body {
 
 .outline {
   border: 1px solid black;
-  width: 300px;
+  min-width: 300px;
+  max-width: 600px;
   padding: 30px;
   margin: 20px;
 }

@@ -20,6 +20,7 @@ Header
   <% } %>
 </span>
 
-hello ___<%= locals.user %>
-
+<% if(locals.isAuthenticated) { %>
+  hello : <%= locals.user.username %>
+<% } %>
 <hr>
