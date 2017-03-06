@@ -2,3 +2,15 @@ body {
   background-color: white;
   color: grey;
 }
+
+.outline {
+  border: 1px solid black;
+  width: 300px;
+  padding: 30px;
+  margin: 20px;
+}
+
+.alert {
+  color: red;
+  padding: 0 20px;
+}

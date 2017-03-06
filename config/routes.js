@@ -8,7 +8,7 @@ const users = require('../controllers/users');
 router.get('/', (req, res) => res.render('statics/index'));
 
 router.route('/register')
-  .get(registrations.new)
+  .get(registrations.new) // not needed now that the both forms are on the same page
   .post(registrations.create);
 
 router.route('/login')

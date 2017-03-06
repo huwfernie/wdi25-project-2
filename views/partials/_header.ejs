@@ -1,35 +1,25 @@
 Header
-
 <a href="/">Index</a>
-<a href="/trips/map">Map</a>
-<a href="/trips">trips</a>
-<a href="/trips/show">trips-show</a>
-<a href="/trips/new">trips-new</a>
-<a href="/trips/edit">trips-edit</a>
+<a href="/trip/map">Map</a>
+<a href="/trip">trip</a>
+<a href="/trip/show">trip-show</a>
+<a href="/trip/new">trip-new</a>
+<a href="/trip/edit">trip-edit</a>
 <a href="/login">login</a>
 <a href="/logout">logout</a>
 <a href="/users">users-all</a>
-<a href="/users/show">users-one</a>
+<a href="/users/id">users-one</a>
 <a href="/register">Register</a>
 <a href="/"></a>
 
+<span class="alert">
+  <% if(locals.isAuthenticated) { %>
+    You are logged in
+  <% } else { %>
+    you are not logged in
+  <% } %>
+</span>
 
+hello ___<%= locals.user %>
 
-<p>
-<% if(locals.isAuthenticated) { %>
-  You are logged in
-<% } else { %>
-  you are not logged in
-<% } %>
-</p>
-
-
-<p>
-  For user in users print users!!!
-  <a href="#">User/:id individual</a>
-</p>
-
-<p>
-  hello <%= locals.user %>
-</p>
 <hr>
