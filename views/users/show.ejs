@@ -12,31 +12,19 @@ nearestAirport: <%= locals.user.nearestAirport %><br>
 favourites: <%= locals.user.favourites %><br>
 bio: <%= locals.user.bio %>
 
+<hr>
+<div class="outline">
+  <img src="<%= locals.user.imageProfile %>">
+</div>
+<hr>
+
+
 <div class="outline">
   <h1>Edit</h1>
 
   <div class="outline">
     <h3>Update strings</h3>
-    <form method="POST" action="/register">
-      <div>
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-      </div>
-      <div>
-        <label for="passwordConfirmation">Password Confirmation</label>
-        <input type="password" name="passwordConfirmation" id="passwordConfirmation">
-      </div>
 
-      <button>Update</button>
-    </form>
   </div>
 
 
@@ -45,8 +33,8 @@ bio: <%= locals.user.bio %>
     <form method="POST" action="/upload" enctype="multipart/form-data">
 
       <div>
-        <label for="imageProfile">Profile Image</label>
-        <input type="file" name="imageProfile" id="imageProfile">
+        <label for="image">Profile Image</label>
+        <input type="file" name="image" id="image">
       </div>
 
 

@@ -39,7 +39,10 @@ router.route('/users') // users all
 
 router.route('/users/:id')
   .get(users.show)
-  .post(upload.single('filename'), users.createImage);
+  .post(upload.single('image'), users.createImage);
+
+router.route('/upload')
+  .post(upload.single('image'), users.createImage);
 
 router.all('*', (req, res) => res.notFound());
 
