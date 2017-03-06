@@ -26,13 +26,15 @@ router.route('/trip/map')
   .get(trip.map);
 
 router.route('/trip/show')
-  .get(trip.show);
+  .get(trip.show)
+  .put(trip.edit);
 
 router.route('/trip/new')
-  .get(trip.new);
+  .get(trip.newWrite)
+  .post(trip.newSave);
 
-router.route('/trip/edit')
-  .get(trip.edit);
+// router.route('/trip/edit')
+//   .get(trip.edit);
 
 router.route('/users') // users all
   .get(users.index);

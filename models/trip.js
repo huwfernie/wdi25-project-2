@@ -27,7 +27,8 @@ const mongoose = require('mongoose');
 //   leg: [ legSchema ]
 // });
 
-const tripSchema = new mongoose.Schemea({
+const tripSchema = new mongoose.Schema({
+  title: String,
   images: [],
   words: String,
   when: String,

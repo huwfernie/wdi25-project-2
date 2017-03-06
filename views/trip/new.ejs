@@ -1,1 +1,40 @@
 trip/new
+
+<div class="outline">
+  Write your trip account here:
+  <div class="container">
+    <form method="POST" action="/trip/new">
+      <div>
+        <label for="when">When?</label>
+        <input type="text" name="when" id="when">
+      </div>
+      <div>
+        <label for="where">Where?</label>
+        <input type="text" name="where" id="where">
+      </div>
+      <div>
+        <label for="who.adults">Who - Adults?</label>
+        <input type="number" name="who" id="who">
+      </div>
+      <div>
+        <label for="who.children">Who - Children?</label>
+        <input type="number" name="who.children" id="who.children">
+      </div>
+      <div>
+        <label for="how">how?</label>
+        <input type="text" name="how" id="how">
+      </div>
+      <div>
+        <label for="for">for how long?</label>
+        <input type="number" name="for" id="for">
+        days
+      </div>
+      <div>
+        <label for="words">Write your Travel diary here:</label>
+        <input type="text" name="words" id="words">
+      </div>
+      <button>Publish</button>
+    </form>
+  </div>
+
+</div>

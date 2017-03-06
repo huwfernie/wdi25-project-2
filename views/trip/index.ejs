@@ -1,1 +1,29 @@
 trip /index.ejs
+<div class="outline">
+  <ul>
+    <% trips.forEach((trip) => { %>
+      <li class="">
+        <a href="/trip/<%= trip.id %>"><h3><%= trip.title %></h3></a>
+        <%= trip.words %>
+
+        <div class="outline">
+          images: <%= trip.images %></br>
+          when: <%= trip.when %></br>
+          where: <%= trip.where %></br>
+          Who: <%= trip.who %></br>
+          Adults: <%= trip.who.adults %></br>
+          Children: <%= trip.who.children %></br>
+          how: <%= trip.how %></br>
+          for: <%= trip.for %> days</br>
+        </div>
+
+
+        <a href="/trip/<%= trip.id %>/edit"><button>Edit</button></a>
+        <form action="/trip/<%= trip.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button>delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</div>

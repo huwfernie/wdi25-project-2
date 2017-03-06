@@ -6,24 +6,6 @@ function showRoute(req, res) {
   res.render('users/show');
 }
 
-// UPDATE
-function updateRoute(req, res) {
-  Book
-    .findById(req.params.id)
-    .exec()
-    .then((book) => {
-      if (!book) return res.status(404).send('Not found');
-
-      for(const field in req.body) {
-        book[field] = req.body[field];
-      }
-      return book.save();
-    })
-    .then((book) => {
-      res.redirect(`/books/${book.id}`);
-    })
-    .catch((err) => res.status(500).end(err));
-}
 
 function createImageProfileRoute(req, res, next) {
   if(req.file) req.body.filename = req.file.key;
