@@ -17,7 +17,27 @@ function createRoute(req, res, next) {
     });
 }
 
+// UPDATE
+function updateRoute(req, res) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if (!user) return res.status(404).send('Not found');
+
+      for(const field in req.body) {
+        user[field] = req.body[field];
+      }
+      return user.save();
+    })
+    .then((user) => {
+      res.redirect(`/users/${user.id}`);
+    })
+    .catch((err) => res.status(500).end(err));
+}
+
 module.exports = {
   new: newRoute,
-  create: createRoute
+  create: createRoute,
+  update: updateRoute
 };

@@ -39,10 +39,14 @@ router.route('/users') // users all
 
 router.route('/users/:id')
   .get(users.show)
-  .post(upload.single('image'), users.createImage);
+  .put(registrations.update);
+//  .post(upload.single('image'), users.createImage);
 
-router.route('/upload')
-  .post(upload.single('image'), users.createImage);
+router.route('/upload/profile')
+  .post(upload.single('image'), users.createImageProfile);
+router.route('/upload/hero')
+  .post(upload.single('image'), users.createImageHero);
+
 
 router.all('*', (req, res) => res.notFound());
 
