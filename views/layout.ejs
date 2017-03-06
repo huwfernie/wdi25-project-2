@@ -6,14 +6,47 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
+
   <body>
+    <header>
+      <a href="/">Index</a>
+      <a href="/trip/map">Map</a>
+      <a href="/trip">trip</a>
+      <a href="/trip/show">trip-show</a>
+      <a href="/trip/new">trip-new</a>
+      <a href="/trip/edit">trip-edit</a>
+      <a href="/login">login</a>
+      <a href="/logout">logout</a>
+      <a href="/users">users-all</a>
+      <a href="/users/id">users-one</a>
+      <a href="/register">Register</a>
+      <a href="/"></a>
+
+
+
+      <p>
+      <% if(locals.isAuthenticated) { %>
+        You are logged in
+      <% } else { %>
+        you are not logged in
+      <% } %>
+      </p>
+    </header>
+
+
     <% for(const type in messages) { %>
       <div class="<%= type %>">
         <h5><%= messages[type] %></h5>
       </div>
     <% } %>
+    <p>
+
+    </p>
+
+
     <main>
       <%- body %>
+
     </main>
   </body>
 </html>
