@@ -1,10 +1,56 @@
-function indexRoute(req, res) {
-  res.render('users/all');
+const User = require('../models/user');
+
+function indexRoute(req, res) { // will eventually get rid of this
+  User
+  .find()
+  .exec()
+  .then((user) => {
+    res.render('users/index', { user });
+  })
+  .catch((err) => res.badRequest(500, err));
 }
 
+
 function showRoute(req, res) {
-  res.render('users/show');
+  User
+  .findById(req.params.id)
+  .exec()
+  .then((user) => {
+    if(!user) return res.notFound();
+    res.render('users/show', { user } );
+  })
+  .catch((err) => {
+    res.badRequest(500, err);
+  });
 }
+
+
+function editRoute(req, res) {
+  User
+  .findById(req.params.id)
+  .exec()
+  .then((user) => {
+    if(!user) return res.notFound();
+    res.render('users/edit', { user } );
+  })
+  .catch((err) => {
+    res.badRequest(500, err);
+  });
+}
+
+function deleteRoute(req, res, next) {
+  User
+  .findById(req.params.id)
+  .exe()
+  .then((user) => {
+    if(!user) res.notFound();
+    return user.remove();
+  })
+  .then(() => res.redirect('/'))
+  .catch(next);
+}
+
+
 
 
 function createImageProfileRoute(req, res, next) {
@@ -61,6 +107,8 @@ function createImageHeroRoute(req, res, next) {
 module.exports = {
   index: indexRoute,
   show: showRoute,
+  edit: editRoute,
+  delete: deleteRoute,
   createImageProfile: createImageProfileRoute,
   createImageHero: createImageHeroRoute
 };

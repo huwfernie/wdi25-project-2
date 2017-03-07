@@ -1,0 +1,59 @@
+users/edit
+
+<div class="outline">
+  <h1>Edit</h1>
+
+  <div class="outline">
+    <h3>Update strings</h3>
+
+    <form method="POST" action="/users/<%= user.id %>/edit">
+      <input type="hidden" name="_method" value="PUT">
+      <div>
+        <label for="username">username</label>
+        <input type="text" name="username" id="username" value="<%= user.username %>">
+      </div>
+      <div>
+        <label for="bio">Bio</label>
+        <input type="text" name="bio" id="bio" value="<%= user.bio %>">
+      </div>
+      <div>
+        <label for="nearestAirport">nearest airport</label>
+        <input type="text" name="nearestAirport" id="nearestAirport" value="<%= user.nearestAirport %>">
+      </div>
+
+
+      <button>Update</button>
+    </form>
+  </div>
+
+
+  <div class="outline">
+    <h3>update pictures</h3>
+    <form method="POST" action="/upload/profile" enctype="multipart/form-data">
+      <div>
+        <label for="image">Profile Image</label>
+        <input type="file" name="image" id="image">
+      </div>
+      <button>Upload</button>
+    </form>
+
+
+    <form method="POST" action="/upload/hero" enctype="multipart/form-data">
+      <div>
+        <label for="image">Profile background Image</label>
+        <input type="file" name="image" id="image">
+      </div>
+      <button>Upload</button>
+    </form>
+  </div>
+
+  <div class="outline">
+    <form action="/users/<%= user.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <p>
+        <button>delete your account</button>
+      </p>
+    </form>
+  </div>
+
+</div>

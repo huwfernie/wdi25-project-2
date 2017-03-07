@@ -1,4 +1,4 @@
-trip - show - This page shouldn't exist
+trips / show
 
 <p>
   <%= locals.trip %>
@@ -17,4 +17,13 @@ trip - show - This page shouldn't exist
   how: <%= locals.trip.how %></br>
   for: <%= locals.trip.for %> days</br>
   for: <%= locals.trip.words %> days</br>
+  <p>
+    <a href="/trips/<%= trip.id %>/edit"><button>Edit</button></a>
+  </p>
+  <p>
+    <form method="POST" action="/trips/<%= trip.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Delete</button>
+    </form>
+  </p>
 </div>

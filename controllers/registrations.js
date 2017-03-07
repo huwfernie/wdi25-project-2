@@ -23,7 +23,7 @@ function updateRoute(req, res) {
     .findById(req.params.id)
     .exec()
     .then((user) => {
-      if (!user) return res.status(404).send('Not found');
+      if (!user) return res.badRequest(404, 'not found');
 
       for(const field in req.body) {
         user[field] = req.body[field];
@@ -33,7 +33,7 @@ function updateRoute(req, res) {
     .then((user) => {
       res.redirect(`/users/${user.id}`);
     })
-    .catch((err) => res.status(500).end(err));
+    .catch((err) => res.badRequest(500, err));
 }
 
 module.exports = {

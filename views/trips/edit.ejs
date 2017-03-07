@@ -1,9 +1,9 @@
-trip - edit
+trips - edit
 
-
-value="<%= trip %>"
-
-<form method="POST" action="/trip/<%= trip.id %>">
+<p>
+  value="<%= trip %>"
+</p>
+<form method="POST" action="/trips/<%= trip.id %>">
   <input type="hidden" name="_method" value="PUT">
     <div>
       <label for="title">Title?</label>
@@ -19,11 +19,11 @@ value="<%= trip %>"
     </div>
     <div>
       <label for="who.adults">Who - Adults?</label>
-      <input type="number" name="who.adults" id="who.adults" value="<%= trip.who[0] %>">
+      <input type="number" name="who[adults]" id="who.adults" value="<%= trip.who.adults %>">
     </div>
     <div>
       <label for="who.children">Who - Children?</label>
-      <input type="number" name="who.children" id="who.children" value="<%= trip.who[1] %>">
+      <input type="number" name="who[children]" id="who.children" value="<%= trip.who.children %>">
     </div>
     <div>
       <label for="how">how?</label>
@@ -38,9 +38,13 @@ value="<%= trip %>"
       <label for="words">Write your Travel diary here:</label>
       <input type="text" name="words" id="words" value="<%= trip.words %>">
     </div>
-  <button>Update</button>
+  <p>
+    <button>Update</button>
+  </p>
 </form>
-<form action="/trip/<%= trip.id %>" method="POST">
+<form action="/trips/<%= trip.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
-  <button>delete</button>
+  <p>
+    <button>delete</button>
+  </p>
 </form>

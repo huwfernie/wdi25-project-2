@@ -1,9 +1,9 @@
-trip/new
+trips/new
 
 <div class="outline">
   Write your trip account here:
   <div class="container">
-    <form method="POST" action="/trip/new">
+    <form method="POST" action="/trips">
       <div>
         <label for="title">Title?</label>
         <input type="text" name="title" id="title">
@@ -18,11 +18,11 @@ trip/new
       </div>
       <div>
         <label for="who.adults">Who - Adults?</label>
-        <input type="number" name="who.adults" id="who.adults">
+        <input type="number" name="who[adults]" id="who.adults">
       </div>
       <div>
         <label for="who.children">Who - Children?</label>
-        <input type="number" name="who.children" id="who.children">
+        <input type="number" name="who[children]" id="who.children">
       </div>
       <div>
         <label for="how">how?</label>

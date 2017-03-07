@@ -5,15 +5,15 @@ function indexRoute(req, res) {
   .find()
   .exec()
   .then((trips) => {
-    res.render('trip/index', { trips });
+    res.render('trips/index', { trips });
   })
   .catch((err) => {
-    res.status(500).end(err);
+    res.badRequest(500, err);
   });
 }
 
 function mapRoute(req, res) {
-  res.render('trip/map');
+  res.render('trips/map');
 }
 
 function showRoute(req, res)  {
@@ -21,27 +21,26 @@ function showRoute(req, res)  {
   .findById(req.params.id)
   .exec()
   .then((trip) => {
-    if(!trip) return res.status(404).end('not found');
-    res.render('trip/show', { trip });
+    if(!trip) return res.badRequest(404, 'not found');
+    res.render('trips/show', { trip });
   })
   .catch((err) => {
-    res.status(500).end(err);
+    res.badRequest(500, err);
   });
 }
 
 // renders the page to write a new log entry
-function newWriteRoute(req, res) {
-  console.log('DID WE GET HERE');
-  res.render('trip/new');
+function newRoute(req, res) {
+  res.render('trips/new');
 }
 
 // processes the save of the new log entry
-function newSaveRoute(req, res) {
-  console.log('or here');
+function createRoute(req, res) {
+  req.body.createdBy = req.user;
   Trip
     .create(req.body)
     .then(() => {
-      res.redirect('/trip');
+      res.redirect('/trips');
     })
     .catch((err) => {
       res.badRequest(500, err);
@@ -63,55 +62,47 @@ function updateRoute(req, res) {
       }
       return trip.save();
     })
-    .then((trip) => {
-      res.redirect(`/trip/${trip.id}`);
+    .then(() => {
+      res.redirect('/trips');
     })
     .catch((err) => res.badRequest(404, err));
 }
 
-// UPDATE
-// function editRoute(req, res) {
-//   Trip
-//     .findById(req.params.id)
-//     .exec()
-//     .then((trip) => {
-//       if (!trip) return res.badRequest(404, 'not found');
-//
-//       for(const field in req.body) {
-//         trip[field] = req.body[field];
-//       }
-//       return trip.save();
-//     })
-//     .then((trip) => {
-//       res.redirect(`/trip/${trip.id}`);
-//     })
-//     .catch((err) => res.status(500).end(err));
-// }
-
-
-// EDIT - renders trip/edit with a single trip file
+// EDIT - renders trip/edit page with a single trip file
 function editRoute(req, res) {
   Trip
   .findById(req.params.id)
   .exec()
   .then((trip) => {
     if(!trip) return res.badRequest(404, 'not found');
-    res.render('trip/edit', { trip });
+    res.render('trips/edit', { trip });
   })
   .catch((err) => {
     res.badRequest(500, err);
   });
 }
 
-
+// to delete a trip entry
+function deleteRoute(req, res, next) {
+  Trip
+  .findById(req.params.id)
+  .exec()
+  .then((trip) => {
+    if(!trip) return res.badRequest(404, 'not found');
+    return trip.remove();
+  })
+  .then(() => res.redirect('/trips'))
+  .catch(next);
+}
 
 
 module.exports = {
   index: indexRoute,
   map: mapRoute,
   show: showRoute,
-  newWrite: newWriteRoute,
-  newSave: newSaveRoute,
+  new: newRoute,
+  create: createRoute,
   edit: editRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };

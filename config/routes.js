@@ -9,7 +9,6 @@ const upload = require('../lib/upload');
 router.get('/', (req, res) => res.render('statics/index'));
 
 router.route('/register')
-  .get(registrations.new) // not needed now that the both forms are on the same page
   .post(registrations.create);
 
 router.route('/login')
@@ -19,50 +18,39 @@ router.route('/login')
 router.route('/logout')
   .get(sessions.delete);
 
-router.route('/trip')
-  .get(trip.index);
 
-router.route('/trip/map')
+//----------------------------------------
+// Trips
+router.route('/trips')
+  .get(trip.index)
+  .post(trip.create);  // save the write new data
+
+router.route('/trips/map')
   .get(trip.map);
 
-router.route('/trip/new')
-  .get(trip.newWrite)
-  .post(trip.newSave);
+router.route('/trips/new')
+  .get(trip.new);   // render the write-new page
 
-// working on this tonight!!!
-router.route('/trip/:id')
+router.route('/trips/:id')
   .get(trip.show)
-  .put(trip.update);
+  .put(trip.update)
+  .delete(trip.delete);
 
-router.route('trip/show')
-  .put(trip.update);
-//
-
-
-// router.route('/books/:id')
-//   .get(books.show)
-//   .put(books.update)
-//   .delete(books.delete);
-
-
-
-
-
-router.route('/trip/:id/edit')
+router.route('/trips/:id/edit')
   .get(trip.edit);
 
 
-
-// router.route('/trip/edit')
-//   .get(trip.edit);
-
+  //----------------------------------------
+  // Users
 router.route('/users') // users all
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show)
+  .get(users.show);
+
+router.route('/users/:id/edit')
+  .get(users.edit)
   .put(registrations.update);
-//  .post(upload.single('image'), users.createImage);
 
 router.route('/upload/profile')
   .post(upload.single('image'), users.createImageProfile);

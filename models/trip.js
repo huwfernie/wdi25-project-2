@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
-// const legSchema = new mongoose.Schemea({
-//   images: [],
-//   words: String,
-//   when: String,
-//   where: String,
-//   who: { adults: Number, childred: Number},
-//   how: String,
-//   for: Number
-// });
+            // const legSchema = new mongoose.Schema({
+            //   images: String,
+            //   words: String,
+            //   when: String,
+            //   where: String
+  // who: { adults: Number, childred: Number},
+  // how: String,
+  // for: Number
+            // });
 //
 // const tripSchema = new mongoose.Schema({
 //   title: {type: String, required: true  },
@@ -29,13 +29,15 @@ const mongoose = require('mongoose');
 
 const tripSchema = new mongoose.Schema({
   title: String,
-  images: [],
+  images: String,
   words: String,
   when: String,
   where: String,
-  who: { adults: Number, children: Number},
+  who: { adults: Number, children: Number },
   how: String,
-  for: Number
+  for: Number,
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  // MIKE legs: [ legSchema ]
 });
 
 //'Trip' specifies the collection where each trip is stored.

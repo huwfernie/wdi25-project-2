@@ -20,10 +20,12 @@ function sessionsCreate(req, res, next) {
       req.user = user;
 
       req.flash('success', `Welcome back, ${user.username}!`);
-      res.redirect('/');
+      res.redirect(`/users/${user.id}`);
     })
     .catch(next);
 }
+
+///users/<user.id>
 
 function sessionsDelete(req, res) {
   req.session.regenerate(() => res.redirect('/'));
