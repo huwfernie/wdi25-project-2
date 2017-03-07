@@ -25,6 +25,10 @@ router.route('/trip')
 router.route('/trip/map')
   .get(trip.map);
 
+router.route('/trip/new')
+  .get(trip.newWrite)
+  .post(trip.newSave);
+
 // working on this tonight!!!
 router.route('/trip/:id')
   .get(trip.show)
@@ -47,9 +51,7 @@ router.route('trip/show')
 router.route('/trip/:id/edit')
   .get(trip.edit);
 
-router.route('/trip/new')
-  .get(trip.newWrite)
-  .post(trip.newSave);
+
 
 // router.route('/trip/edit')
 //   .get(trip.edit);

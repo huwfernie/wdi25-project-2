@@ -31,11 +31,13 @@ function showRoute(req, res)  {
 
 // renders the page to write a new log entry
 function newWriteRoute(req, res) {
+  console.log('DID WE GET HERE');
   res.render('trip/new');
 }
 
 // processes the save of the new log entry
 function newSaveRoute(req, res) {
+  console.log('or here');
   Trip
     .create(req.body)
     .then(() => {
