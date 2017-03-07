@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Trip = require('../models/trip');
 
 function indexRoute(req, res) { // will eventually get rid of this
   User
@@ -16,11 +17,13 @@ function showRoute(req, res) {
   .findById(req.params.id)
   .exec()
   .then((user) => {
-    if(!user) return res.notFound();
-    res.render('users/show', { user } );
-  })
-  .catch((err) => {
-    res.badRequest(500, err);
+    return Trip.find({ createdBy: user.id })
+    .then((trips) => {
+      res.render('users/show', { user, trips });
+    })
+    .catch((err) => {
+      res.badRequest(500, err);
+    });
   });
 }
 
