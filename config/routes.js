@@ -5,6 +5,7 @@ const secureRoute = require('../lib/secureRoute');
 const trip = require('../controllers/trip');
 const users = require('../controllers/users');
 const upload = require('../lib/upload');
+const oauth = require('../controllers/oauth');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -40,8 +41,8 @@ router.route('/trips/:id/edit')
   .get(trip.edit);
 
 
-  //----------------------------------------
-  // Users
+//----------------------------------------
+// Users
 router.route('/users') // users all
   .get(users.index);
 
@@ -57,6 +58,12 @@ router.route('/upload/profile')
   .post(upload.single('image'), users.createImageProfile);
 router.route('/upload/hero')
   .post(upload.single('image'), users.createImageHero);
+
+
+//----------------------------------------
+// oAuth
+router.route('/oauth/github')
+  .get(oauth.github);
 
 
 router.all('*', (req, res) => res.notFound());

@@ -4,13 +4,19 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   username: {type: String },
   email: {type: String },
-  password: {type: String, required: true },
+  password: {type: String },
   imageProfile: String,
   imageHero: String,
   nearestAirport: String,
   favourites: [],
-  bio: String
+  bio: String,
+  githubId: { type: Number }
 });
+
+
+
+
+
 
 userSchema
   // virtual, use it but don't store it in the database
