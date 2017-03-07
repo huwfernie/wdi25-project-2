@@ -17,8 +17,10 @@ function showRoute(req, res) {
   .findById(req.params.id)
   .exec()
   .then((user) => {
+    if(!user) return res.notFound();
     return Trip.find({ createdBy: user.id })
     .then((trips) => {
+      if(!trips) return res.notFound();
       res.render('users/show', { user, trips });
     })
     .catch((err) => {

@@ -1,7 +1,7 @@
 trips / show
 
 <p>
-  <%= locals.trip %>
+  trip: <%= trip %>
 </p>
 
 <div class="outline">
@@ -17,6 +17,13 @@ trips / show
   how: <%= locals.trip.how %></br>
   for: <%= locals.trip.for %> days</br>
   for: <%= locals.trip.words %> days</br>
+
+  <p>
+    written by: <%= trip.createdBy['username'] %> <br>
+    who looks like <img src="<%= trip.createdBy['imageProfile'] %>"><br>
+    <a href="/users/<%= trip.createdBy['_id'] %>">Look at their profile</a>
+  </p>
+
   <p>
     <a href="/trips/<%= trip.id %>/edit"><button>Edit</button></a>
   </p>

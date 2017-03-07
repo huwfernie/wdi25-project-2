@@ -1,4 +1,5 @@
 const Trip = require('../models/trip');
+const User = require('../models/user');
 
 function indexRoute(req, res) {
   Trip
@@ -19,9 +20,13 @@ function mapRoute(req, res) {
 function showRoute(req, res)  {
   Trip
   .findById(req.params.id)
+  .populate('createdBy')
   .exec()
   .then((trip) => {
-    if(!trip) return res.badRequest(404, 'not found');
+    if(!trip) return res.notFound();
+    console.log('here');
+    console.log(trip);
+    console.log(trip.createdBy);
     res.render('trips/show', { trip });
   })
   .catch((err) => {
