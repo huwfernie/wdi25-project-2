@@ -1,5 +1,5 @@
 const Trip = require('../models/trip');
-const User = require('../models/user');
+//const User = require('../models/user');
 
 function indexRoute(req, res) {
   Trip

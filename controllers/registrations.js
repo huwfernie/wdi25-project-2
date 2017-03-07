@@ -1,20 +1,28 @@
 const User = require('../models/user');
 
-function newRoute(req, res) {
-  return res.render('sessions/new'); // this will never be used - grow some balls and delete it!
-}
+// function newRoute(req, res) {
+//   return res.render('sessions/new'); // this will never be used - grow some balls and delete it!
+// }
 
+// CREATE a new user
 function createRoute(req, res, next) {
   User
-    .create(req.body)
-    .then(() => res.redirect('/users'))
-    .catch((err) => {
-      if(err.name === 'ValidationError') {
-        req.flash('alert', 'Passwords do not match');
-        return res.redirect('/');
-      }
-      next();
-    });
+  .create(req.body)
+  .then((user) => {
+    req.session.userId = user.id;
+    req.session.isAuthenticated = true;
+    req.user = user;
+
+    req.flash('success', `Welcome back, ${user.username}!`);
+    res.redirect(`/users/${user.id}`);
+  })
+  .catch((err) => {
+    if(err.name === 'ValidationError') {
+      req.flash('alert', 'Passwords do not match');
+      return res.redirect('/');
+    }
+    next();
+  });
 }
 
 // UPDATE
@@ -37,7 +45,7 @@ function updateRoute(req, res) {
 }
 
 module.exports = {
-  new: newRoute,
+  // new: newRoute,
   create: createRoute,
   update: updateRoute
 };

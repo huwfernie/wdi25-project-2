@@ -46,7 +46,7 @@ function editRoute(req, res) {
 function deleteRoute(req, res, next) {
   User
   .findById(req.params.id)
-  .exe()
+  .exec()
   .then((user) => {
     if(!user) res.notFound();
     return user.remove();

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
-//const secureRoute = require('../lib/secureRoute');
+const secureRoute = require('../lib/secureRoute');
 const trip = require('../controllers/trip');
 const users = require('../controllers/users');
 const upload = require('../lib/upload');
@@ -29,7 +29,7 @@ router.route('/trips/map')
   .get(trip.map);
 
 router.route('/trips/new')
-  .get(trip.new);   // render the write-new page
+  .get(secureRoute, trip.new);   // render the write-new page
 
 router.route('/trips/:id')
   .get(trip.show)
@@ -46,11 +46,12 @@ router.route('/users') // users all
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show);
+  .get(users.show)
+  .delete(users.delete);
 
 router.route('/users/:id/edit')
   .get(users.edit)
-  .put(registrations.update);
+  .put(registrations.update); // needed from users / edit
 
 router.route('/upload/profile')
   .post(upload.single('image'), users.createImageProfile);
