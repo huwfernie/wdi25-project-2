@@ -16,14 +16,25 @@ function mapRoute(req, res) {
   res.render('trip/map');
 }
 
-function showRoute(req, res) {
-  res.render('trip/show');
+function showRoute(req, res)  {
+  Trip
+  .findById(req.params.id)
+  .exec()
+  .then((trip) => {
+    if(!trip) return res.status(404).end('not found');
+    res.render('trip/show', { trip });
+  })
+  .catch((err) => {
+    res.status(500).end(err);
+  });
 }
 
+// renders the page to write a new log entry
 function newWriteRoute(req, res) {
   res.render('trip/new');
 }
 
+// processes the save of the new log entry
 function newSaveRoute(req, res) {
   Trip
     .create(req.body)
@@ -36,15 +47,14 @@ function newSaveRoute(req, res) {
     });
 }
 
-
-
-// UPDATE
-function editRoute(req, res) {
+// UPDATE - updates a previous log entry
+function updateRoute(req, res) {
+  console.log('does it get this far?');
   Trip
     .findById(req.params.id)
     .exec()
     .then((trip) => {
-      if (!trip) return res.status(404).send('Not found');
+      if (!trip) return res.badRequest(404, 'not found');
 
       for(const field in req.body) {
         trip[field] = req.body[field];
@@ -54,11 +64,42 @@ function editRoute(req, res) {
     .then((trip) => {
       res.redirect(`/trip/${trip.id}`);
     })
-    .catch((err) => res.status(500).end(err));
+    .catch((err) => res.badRequest(404, err));
 }
 
+// UPDATE
+// function editRoute(req, res) {
+//   Trip
+//     .findById(req.params.id)
+//     .exec()
+//     .then((trip) => {
+//       if (!trip) return res.badRequest(404, 'not found');
+//
+//       for(const field in req.body) {
+//         trip[field] = req.body[field];
+//       }
+//       return trip.save();
+//     })
+//     .then((trip) => {
+//       res.redirect(`/trip/${trip.id}`);
+//     })
+//     .catch((err) => res.status(500).end(err));
+// }
 
 
+// EDIT - renders trip/edit with a single trip file
+function editRoute(req, res) {
+  Trip
+  .findById(req.params.id)
+  .exec()
+  .then((trip) => {
+    if(!trip) return res.badRequest(404, 'not found');
+    res.render('trip/edit', { trip });
+  })
+  .catch((err) => {
+    res.badRequest(500, err);
+  });
+}
 
 
 
@@ -69,5 +110,6 @@ module.exports = {
   show: showRoute,
   newWrite: newWriteRoute,
   newSave: newSaveRoute,
-  edit: editRoute
+  edit: editRoute,
+  update: updateRoute
 };

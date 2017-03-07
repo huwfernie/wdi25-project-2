@@ -2,11 +2,12 @@ trip /index.ejs
 <div class="outline">
   <ul>
     <% trips.forEach((trip) => { %>
-      <li class="">
-        <a href="/trip/<%= trip.id %>"><h3><%= trip.title %></h3></a>
-        <%= trip.words %>
+      <li class="none">
+        <h3><%= trip.title %></h3>
+
 
         <div class="outline">
+          title: <%= trip.title %><br>
           images: <%= trip.images %></br>
           when: <%= trip.when %></br>
           where: <%= trip.where %></br>
@@ -15,14 +16,13 @@ trip /index.ejs
           Children: <%= trip.who.children %></br>
           how: <%= trip.how %></br>
           for: <%= trip.for %> days</br>
+          <p>
+            <%= trip.words %>
+          </p>
         </div>
 
 
         <a href="/trip/<%= trip.id %>/edit"><button>Edit</button></a>
-        <form action="/trip/<%= trip.id %>" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <button>delete</button>
-        </form>
       </li>
     <% }); %>
   </ul>

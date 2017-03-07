@@ -33,7 +33,7 @@ const tripSchema = new mongoose.Schema({
   words: String,
   when: String,
   where: String,
-  who: { adults: Number, childred: Number},
+  who: { adults: Number, children: Number},
   how: String,
   for: Number
 });

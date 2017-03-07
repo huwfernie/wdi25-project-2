@@ -25,9 +25,27 @@ router.route('/trip')
 router.route('/trip/map')
   .get(trip.map);
 
-router.route('/trip/show')
+// working on this tonight!!!
+router.route('/trip/:id')
   .get(trip.show)
-  .put(trip.edit);
+  .put(trip.update);
+
+router.route('trip/show')
+  .put(trip.update);
+//
+
+
+// router.route('/books/:id')
+//   .get(books.show)
+//   .put(books.update)
+//   .delete(books.delete);
+
+
+
+
+
+router.route('/trip/:id/edit')
+  .get(trip.edit);
 
 router.route('/trip/new')
   .get(trip.newWrite)

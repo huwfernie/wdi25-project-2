@@ -1,1 +1,20 @@
-trip - show
+trip - show - This page shouldn't exist
+
+<p>
+  <%= locals.trip %>
+</p>
+
+<div class="outline">
+  <p>
+    <%= locals.trip.title %>
+  </p>
+  images: <%= locals.trip.images %></br>
+  when: <%= locals.trip.when %></br>
+  where: <%= locals.trip.where %></br>
+  Who: <%= locals.trip.who %></br>
+  Adults: <%= locals.trip.who["adults"] %></br>
+  Children: <%= locals.trip.who.children %></br>
+  how: <%= locals.trip.how %></br>
+  for: <%= locals.trip.for %> days</br>
+  for: <%= locals.trip.words %> days</br>
+</div>
