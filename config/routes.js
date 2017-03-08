@@ -65,6 +65,8 @@ router.route('/upload/hero')
 router.route('/oauth/github')
   .get(oauth.github);
 
+router.route('/oauth/twitter')
+  .get(oauth.twitter);
 
 router.all('*', (req, res) => res.notFound());
 

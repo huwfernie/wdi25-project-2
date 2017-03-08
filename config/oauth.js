@@ -9,5 +9,15 @@ module.exports = {
     getLoginURL() {
       return `${this.loginURL}?client_id=${this.clientId}&scope=${this.scope}`;
     }
+  },
+
+
+  twitter: {
+    loginURL: 'https://api.twitter.com/oauth/authorize',//this might be the wrong address
+    clientId: process.env.TWITTER_CLIENT_ID,
+    scope: 'user:email',
+    getLoginURL() {
+      return `${this.loginURL}?client_id=${this.clientId}`;
+    }
   }
 };

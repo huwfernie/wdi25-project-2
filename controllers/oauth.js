@@ -36,6 +36,8 @@ function github(req, res, next) {
         }
 
         user.githubId = profile.id;
+        user.imageProfile = profile.avatar_url;
+
         return user.save();
       });
   })
@@ -43,12 +45,23 @@ function github(req, res, next) {
     req.session.userId = user.id;
     req.session.isAuthenticated = true;
 
-    req.flash('info', `Welcome back, ${user.username}!`);
-    res.redirect('/');
+    req.flash('success', `Welcome back, ${user.username}!`);
+    res.redirect(`/users/${user.id}`);
   })
   .catch(next);
 }
 
+// Now for Twitter
+
+function twitter(req, res, next) {
+  res.send();
+  next();
+}
+
+
+
+
 module.exports = {
-  github
+  github,
+  twitter
 };
