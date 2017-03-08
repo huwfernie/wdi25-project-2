@@ -29,7 +29,6 @@ const legSchema = new mongoose.Schema({
 
 const tripSchema = new mongoose.Schema({
   title: String,
-  images: String,
   words: String,
   when: String,
   where: String,
@@ -39,7 +38,9 @@ const tripSchema = new mongoose.Schema({
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   legs: [ legSchema ],
   lat: Number,
-  long: Number
+  long: Number,
+  imageHero: String,
+  imageGallery: []
 });
 
 //'Trip' specifies the collection where each trip is stored.

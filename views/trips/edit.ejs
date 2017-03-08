@@ -52,6 +52,25 @@ trips - edit
     <button>Update</button>
   </p>
 </form>
+<div class="outline">
+  <h3>update pictures</h3>
+  <form method="POST" action="/trips/<%= trip.id %>/editGallery" enctype="multipart/form-data">
+    <div>
+      <label for="image">Profile Image</label>
+      <input type="file" name="image" id="image">
+    </div>
+    <button>push this into the array</button>
+  </form>
+
+
+  <form method="POST" action="/trips/<%= trip.id %>/edit" enctype="multipart/form-data">
+    <div>
+      <label for="image">Profile background Image</label>
+      <input type="file" name="image" id="image">
+    </div>
+    <button>Upload</button>
+  </form>
+</div>
 <form action="/trips/<%= trip.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <p>

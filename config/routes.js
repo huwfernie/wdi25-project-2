@@ -38,7 +38,11 @@ router.route('/trips/:id')
   .delete(secureRoute, trip.delete);
 
 router.route('/trips/:id/edit')
-  .get(secureRoute, trip.edit);
+  .get(secureRoute, trip.edit)
+  .post(secureRoute, upload.single('image'), trip.createImageHero);
+
+router.route('/trips/:id/editGallery')
+  .post(secureRoute, upload.single('image'), trip.createImageGallery);
 
 
 //----------------------------------------

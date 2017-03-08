@@ -6,6 +6,7 @@ trips / show
 </p>
 
 <div class="outline">
+  <img src="<%= locals.trip.imageHero %>">
   <p>
     <%= locals.trip.title %>
   </p>
@@ -20,6 +21,17 @@ trips / show
   Description: <%= locals.trip.words %> </br>
   lat: <%= locals.trip.lat %> </br>
   long: <%= locals.trip.long %> </br>
+  long: <%= locals.trip.long %> </br>
+
+  <ul>
+    <% locals.trip.imageGallery.forEach((trip) => { %>
+      <li class="none">
+        <div class="outline">
+          <img src="<%= trip %>">
+        </div>
+      </li>
+    <% }); %>
+  </ul>
 
   <p>
     written by: <%= trip.createdBy['username'] %> <br>

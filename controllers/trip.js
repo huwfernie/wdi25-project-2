@@ -32,9 +32,9 @@ function showRoute(req, res)  {
   .exec()
   .then((trip) => {
     if(!trip) return res.notFound();
-    console.log('here');
-    console.log(trip);
-    console.log(trip.createdBy);
+    // console.log('here');
+    // console.log(trip);
+    // console.log(trip.createdBy);
     res.render('trips/show', { trip });
   })
   .catch((err) => {
@@ -63,7 +63,7 @@ function createRoute(req, res) {
 
 // UPDATE - updates a previous log entry
 function updateRoute(req, res) {
-  console.log('does it get this far?');
+  //console.log('does it get this far?');
   Trip
     .findById(req.params.id)
     .exec()
@@ -87,7 +87,7 @@ function editRoute(req, res) {
   .findById(req.params.id)
   .exec()
   .then((trip) => {
-    if(!trip) return res.badRequest(404, 'not found');
+    if(!trip) return res.notFound();
     res.render('trips/edit', { trip });
   })
   .catch((err) => {
@@ -108,14 +108,61 @@ function deleteRoute(req, res, next) {
   .catch(next);
 }
 
+function createImageHeroRoute(req, res, next) {
+  Trip
+  .findById(req.params.id)
+  .exec()
+  .then((trip) => {
+    if(!trip) return res.notFound();
+    if(req.file) req.body.image = req.file.key;
+    const file = req.file.location;
+    // console.log(file);
+    // console.log(trip);
+    trip.imageHero = file;
+    trip
+    .save()
+    .then(() => res.redirect(`/trips/${req.params.id}`));
+  })
+  .catch((err) => {
+    //console.log(err);
+    if(err.name === 'ValidationError') return res.badRequest('/user/images/new', err.toString());
+    next(err);
+
+  });
+}
+
+function createImageGalleryRoute(req, res, next) {
+  Trip
+  .findById(req.params.id)
+  .exec()
+  .then((trip) => {
+    if(!trip) return res.notFound();
+    if(req.file) req.body.image = req.file.key;
+    const file = req.file.location;
+    // console.log(file);
+    // console.log(trip);
+    trip.imageGallery.push(file);
+    trip
+    .save()
+    .then(() => res.redirect(`/trips/${req.params.id}`));
+  })
+  .catch((err) => {
+    //console.log(err);
+    if(err.name === 'ValidationError') return res.badRequest('/user/images/new', err.toString());
+    next(err);
+
+  });
+}
 
 module.exports = {
   index: indexRoute,
-  map: mapRoute,
+  map: mapRoute,// what should this be called??
   show: showRoute,
   new: newRoute,
   create: createRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  createImageHero: createImageHeroRoute, // this too?
+  createImageGallery: createImageGalleryRoute // this too?
 };
