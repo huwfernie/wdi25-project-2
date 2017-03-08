@@ -3,26 +3,26 @@ users/:id
 <p>
   user: <%= locals.thisUser %><br>
 </p>
-username: <%= locals.user.username %><br>
-email: <%= locals.user.email %><br>
-password: <%= locals.user.password %><br>
-profile image: <%= locals.user.imageProfile %><br>
-hero image: <%= locals.user.imageHero %><br>
-nearestAirport: <%= locals.user.nearestAirport %><br>
-favourites: <%= locals.user.favourites %><br>
-bio: <%= locals.user.bio %>
+username: <%= locals.thisUser.username %><br>
+email: <%= locals.thisUser.email %><br>
+password: <%= locals.thisUser.password %><br>
+profile image: <%= locals.thisUser.imageProfile %><br>
+hero image: <%= locals.thisUser.imageHero %><br>
+nearestAirport: <%= locals.thisUser.nearestAirport %><br>
+favourites: <%= locals.thisUser.favourites %><br>
+bio: <%= locals.thisUser.bio %>
 
 <hr>
 <div class="outline">
-  <img src="<%= locals.user.imageProfile %>">
-  <img src="<%= locals.user.imageHero %>">
+  <img src="<%= locals.thisUser.imageProfile %>">
+  <img src="<%= locals.thisUser.imageHero %>">
   <p>
     <p>
       username:<br>
-    <%= user.username %>
+    <%= thisUser.username %>
     </p>
     bio:<br>
-    <%= user.bio %>
+    <%= thisUser.bio %>
   </p>
 
   <hr>
@@ -45,7 +45,10 @@ bio: <%= locals.user.bio %>
 
 <hr>
 
-<%= locals.user.id %>
-<a href="/users/<%= locals.user.id %>/edit"><button>Edit your profile</button></a>
 
-<a href="/trips/new"><button>Add a trip report</button></a>
+
+  <% if(locals.isAuthenticated && (user.id == thisUser.id)) { %>
+    <a href="/users/<%= locals.user.id %>/edit"><button>Edit your profile</button></a>
+
+    <a href="/trips/new"><button>Add a new trip report</button></a>
+  <% } %>

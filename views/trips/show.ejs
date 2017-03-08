@@ -28,18 +28,14 @@ trips / show
     <a href="/users/<%= trip.createdBy['_id'] %>">Look at their profile</a>
   </p>
 
-  authenticated:<%= locals.isAuthenticated %><br>
-  userID:<%= user.id %><br>
-  CREATED BY:<%= trip.createdBy['_id'] %><br>
-
   <% if(locals.isAuthenticated && (user.id == trip.createdBy['_id'])) { %>
   <p>
-    <a href="/trips/<%= trip.id %>/edit"><button>Edit</button></a>
+    <a href="/trips/<%= trip.id %>/edit"><button>Edit this trip</button></a>
   </p>
   <p>
     <form method="POST" action="/trips/<%= trip.id %>">
       <input type="hidden" name="_method" value="DELETE">
-      <button>Delete</button>
+      <button>Delete this trip</button>
     </form>
   </p>
   <% } %>
