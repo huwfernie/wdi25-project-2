@@ -6,8 +6,10 @@ const trip = require('../controllers/trip');
 const users = require('../controllers/users');
 const upload = require('../lib/upload');
 const oauth = require('../controllers/oauth');
+const statics = require('../controllers/statics');
 
-router.get('/', (req, res) => res.render('statics/index'));
+router.route('/')
+  .get(statics.index);
 
 router.route('/register')
   .post(registrations.create);

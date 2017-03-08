@@ -41,6 +41,8 @@ const tripSchema = new mongoose.Schema({
   long: Number,
   imageHero: String,
   imageGallery: []
+},{
+  timestamps: true
 });
 
 //'Trip' specifies the collection where each trip is stored.

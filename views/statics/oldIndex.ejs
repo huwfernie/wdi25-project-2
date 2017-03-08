@@ -1,17 +1,16 @@
 index
 <h1> project-2 </h1>
 
-<%= trips %><br>
+<%= imageArray %><br>
 <hr>
 
 <div class="outline">
   <ul>
-    <% trips.forEach((trip) => { %>
+    <% imageArray.forEach((pic) => { %>
       <li class="none">
         <div class="outline">
           here
-          <%= trip.title %>
-        <img src="<%= trip.imageHero %>">
+          <img src="<%=pic%>">
         </div>
       </li>
     <% }); %>
