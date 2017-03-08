@@ -5,8 +5,8 @@ function indexRoute(req, res) { // will eventually get rid of this
   User
   .find()
   .exec()
-  .then((user) => {
-    res.render('users/index', { user });
+  .then((users) => {
+    res.render('users/index', { users });
   })
   .catch((err) => res.badRequest(500, err));
 }
@@ -16,12 +16,12 @@ function showRoute(req, res) {
   User
   .findById(req.params.id)
   .exec()
-  .then((user) => {
-    if(!user) return res.notFound();
-    return Trip.find({ createdBy: user.id })
+  .then((thisUser) => {
+    if(!thisUser) return res.notFound();
+    return Trip.find({ createdBy: thisUser.id })
     .then((trips) => {
       if(!trips) return res.notFound();
-      res.render('users/show', { user, trips });
+      res.render('users/show', { thisUser, trips });
     })
     .catch((err) => {
       res.badRequest(500, err);

@@ -16,6 +16,7 @@ function sessionsCreate(req, res, next) {
       }
 
       req.session.userId = user.id;
+
       req.session.isAuthenticated = true;
       req.user = user;
 

@@ -3,15 +3,15 @@ Header
 <a href="/trips/map">Map</a>
 <a href="/trips">trips</a>
 
-<a href="/trips/new">trips-new</a>
-
-<a href="/login">login</a>
-<a href="/logout">logout</a>
 <a href="/users">users-all</a>
 
-<a href="/login">Register</a>
-
-<a href="/"></a>
+<% if(locals.isAuthenticated) { %>
+  <a href="/logout">logout</a>
+  <a href="/users/<%= user.id %>">Your profile page</a>
+  <a href="/trips/new">trips-new</a>
+<% } else { %>
+  <a href="/login">Login or Register</a>
+<% } %>
 
 <span class="alert">
   <% if(locals.isAuthenticated) { %>
@@ -22,6 +22,6 @@ Header
 </span>
 
 <% if(locals.isAuthenticated) { %>
-  hello : <%= locals.user.username %>
+  hello : <%= user.username %>
 <% } %>
 <hr>

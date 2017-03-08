@@ -24,7 +24,7 @@ router.route('/logout')
 // Trips
 router.route('/trips')
   .get(trip.index)
-  .post(trip.create);  // save the write new data
+  .post(secureRoute, trip.create);  // save the write new data
 
 router.route('/trips/map')
   .get(trip.map);
@@ -34,11 +34,11 @@ router.route('/trips/new')
 
 router.route('/trips/:id')
   .get(trip.show)
-  .put(trip.update)
-  .delete(trip.delete);
+  .put(secureRoute, trip.update)
+  .delete(secureRoute, trip.delete);
 
 router.route('/trips/:id/edit')
-  .get(trip.edit);
+  .get(secureRoute, trip.edit);
 
 
 //----------------------------------------
@@ -47,17 +47,17 @@ router.route('/users') // users all
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show)
-  .delete(users.delete);
+  .get(secureRoute, users.show)
+  .delete(secureRoute, users.delete);
 
 router.route('/users/:id/edit')
-  .get(users.edit)
-  .put(registrations.update); // needed from users / edit
+  .get(secureRoute, users.edit)
+  .put(secureRoute, registrations.update); // needed from users / edit
 
 router.route('/upload/profile')
-  .post(upload.single('image'), users.createImageProfile);
+  .post(secureRoute, upload.single('image'), users.createImageProfile);
 router.route('/upload/hero')
-  .post(upload.single('image'), users.createImageHero);
+  .post(secureRoute, upload.single('image'), users.createImageHero);
 
 
 //----------------------------------------

@@ -1,15 +1,5 @@
 sessions - new
 
-<%# added for facebook%>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1823036937935333";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="outline">
   <h1>Login</h1>
@@ -27,8 +17,8 @@ sessions - new
   </form>
 </div>
 
-<a href="<%= oauth.github.getLoginURL() %>" target="_blank" class="btn btn-primary">Login With Github</a>
-<a href="<%= oauth.twitter.getLoginURL() %>" target="_blank" class="btn btn-primary">Login With Twitter</a>
+<a href="<%= oauth.github.getLoginURL() %>" class="btn btn-primary">Login With Github</a>
+
 
 <div class="outline">
   <h1> Register</h1>
