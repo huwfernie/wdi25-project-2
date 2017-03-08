@@ -37,7 +37,9 @@ const tripSchema = new mongoose.Schema({
   how: String,
   for: Number,
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  legs: [ legSchema ]
+  legs: [ legSchema ],
+  lat: Number,
+  long: Number
 });
 
 //'Trip' specifies the collection where each trip is stored.

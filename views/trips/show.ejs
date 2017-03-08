@@ -1,9 +1,6 @@
 trips / show
 
 
-
-
-
 <p>
   trip: <%= trip %>
 </p>
@@ -20,7 +17,9 @@ trips / show
   Children: <%= locals.trip.who.children %></br>
   how: <%= locals.trip.how %></br>
   for: <%= locals.trip.for %> days</br>
-  for: <%= locals.trip.words %> days</br>
+  Description: <%= locals.trip.words %> </br>
+  lat: <%= locals.trip.lat %> </br>
+  long: <%= locals.trip.long %> </br>
 
   <p>
     written by: <%= trip.createdBy['username'] %> <br>

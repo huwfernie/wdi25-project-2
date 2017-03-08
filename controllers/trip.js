@@ -14,7 +14,15 @@ function indexRoute(req, res) {
 }
 
 function mapRoute(req, res) {
-  res.render('trips/map');
+  Trip
+  .find()
+  .exec()
+  .then((trips) => {
+    res.render('trips/map', { trips });
+  })
+  .catch((err) => {
+    res.badRequest(500, err);
+  });
 }
 
 function showRoute(req, res)  {
