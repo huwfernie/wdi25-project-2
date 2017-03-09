@@ -12,14 +12,14 @@ body {
 }
 
 .alert {
+  box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
+  -webkit-box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
   color: red;
   padding: 0 20px;
+
 }
 
-#map {
-  height: 400px;
-  width: 100%;
- }
+
 
 header {
   background: white;
@@ -79,4 +79,21 @@ header {
     top: 80%;
     left: 10%;
   }
+}
+
+
+// End of Index styling
+
+#map {
+  height: 60vh;
+  width: 100%;
+ }
+
+.mapContainer {
+  position: absolute;  // if the child is absolute
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: inherit;
+  width: 70vw;
 }

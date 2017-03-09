@@ -16,9 +16,9 @@ $(function () {
   if ($map.length) initMap();
 
   function initMap() {
-    var latLng = { lat: 51.515113, lng: -0.072051 };
+    var latLng = { lat: 0, lng: 0 };
     map = new google.maps.Map($map.get(0), {
-      zoom: 5,
+      zoom: 1,
       center: latLng,
       scrollwheel: false
     });

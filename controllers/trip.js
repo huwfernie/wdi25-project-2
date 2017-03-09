@@ -3,7 +3,6 @@ const markdown = require( 'markdown' ).markdown;
 
 
 function indexRoute(req, res) {
-  console.log( markdown.toHTML( 'Hello *World*!' ) );
   if(req.query.q === '' || !req.query.q ) {
     req.flash('alert', `showing all trips`);
     Trip
@@ -29,15 +28,28 @@ function indexRoute(req, res) {
 }
 
 function mapRoute(req, res) {
-  Trip
-  .find()
-  .exec()
-  .then((trips) => {
-    res.render('trips/map', { trips });
-  })
-  .catch((err) => {
-    res.badRequest(500, err);
-  });
+  if(req.query.q === '' || !req.query.q ) {
+    req.flash('alert', `showing all trips`);
+    Trip
+    .find()
+    .exec()
+    .then((trips) => {
+      if(!trips) return res.notFound();
+      res.render('trips/map', { trips });
+    });
+  } else {
+    req.flash('alert', `showing trips that match "${req.query.q}"`);
+    Trip
+    .find({ when: req.query.q.toLowerCase() })
+    .exec()
+    .then((trips) => {
+      if(!trips) return res.notFound();
+      res.render('trips/map', { trips });
+    })
+    .catch((err) => {
+      res.badRequest(500, err);
+    });
+  }
 }
 
 function showRoute(req, res)  {
