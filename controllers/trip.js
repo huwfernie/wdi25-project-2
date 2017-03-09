@@ -1,7 +1,7 @@
 const Trip = require('../models/trip');
 
 function indexRoute(req, res) {
-  if(req.query.q === '') {
+  if(req.query.q === '' || !req.query.q ) {
     req.flash('alert', `showing all trips`);
     Trip
     .find()
