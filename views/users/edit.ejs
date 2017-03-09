@@ -1,59 +1,81 @@
-users/edit
-
-<div class="outline">
-  <h1>Edit</h1>
-
-  <div class="outline">
-    <h3>Update strings</h3>
-
-    <form method="POST" action="/users/<%= user.id %>/edit">
-      <input type="hidden" name="_method" value="PUT">
-      <div>
-        <label for="username">username</label>
-        <input type="text" name="username" id="username" value="<%= user.username %>">
-      </div>
-      <div>
-        <label for="bio">Bio</label>
-        <input type="text" name="bio" id="bio" value="<%= user.bio %>">
-      </div>
-      <div>
-        <label for="nearestAirport">nearest airport</label>
-        <input type="text" name="nearestAirport" id="nearestAirport" value="<%= user.nearestAirport %>">
-      </div>
-
-
-      <button>Update</button>
-    </form>
+<div class="hero">
+  <img class="userImageHero" src="<%= locals.user.imageHero %>">
+  <div class="profile">
+    <img class="userImageProfile" src="<%= user.imageProfile %>">
   </div>
+</div>
 
 
-  <div class="outline">
-    <h3>update pictures</h3>
-    <form method="POST" action="/upload/profile" enctype="multipart/form-data">
-      <div>
-        <label for="image">Profile Image</label>
-        <input type="file" name="image" id="image">
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+
+
+
+
+        <div class="outline">
+          <h1>Edit</h1>
+
+          <div class="outline">
+            <h3>Update strings</h3>
+
+            <form method="POST" action="/users/<%= user.id %>/edit">
+              <input type="hidden" name="_method" value="PUT">
+              <div>
+                <label for="username">username</label>
+                <input type="text" name="username" id="username" value="<%= user.username %>">
+              </div>
+              <div>
+                <label for="bio">Bio</label>
+                <input class="tripInput" type="text" name="bio" id="bio" value="<%= user.bio %>">
+              </div>
+              <div>
+                <label for="nearestAirport">nearest airport</label>
+                <input type="text" name="nearestAirport" id="nearestAirport" value="<%= user.nearestAirport %>">
+              </div>
+
+
+              <button>Update</button>
+            </form>
+          </div>
+
+
+          <div class="outline">
+            <h3>update pictures</h3>
+            <form method="POST" action="/upload/profile" enctype="multipart/form-data">
+              <div>
+                <label for="image">Profile Image</label>
+                <input type="file" name="image" id="image"><button>Upload</button>
+              </div>
+
+            </form>
+
+
+            <form method="POST" action="/upload/hero" enctype="multipart/form-data">
+              <div>
+                <label for="image">Profile background Image</label>
+                <input type="file" name="image" id="image"><button>Upload</button>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="outline">
+            <form action="/users/<%= user.id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <p>
+                <button>delete your account</button>
+              </p>
+            </form>
+          </div>
+
+        </div>
+
+
+
+
       </div>
-      <button>Upload</button>
-    </form>
-
-
-    <form method="POST" action="/upload/hero" enctype="multipart/form-data">
-      <div>
-        <label for="image">Profile background Image</label>
-        <input type="file" name="image" id="image">
-      </div>
-      <button>Upload</button>
-    </form>
+    <div class="col-md-1"></div>
   </div>
-
-  <div class="outline">
-    <form action="/users/<%= user.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <p>
-        <button>delete your account</button>
-      </p>
-    </form>
-  </div>
-
 </div>

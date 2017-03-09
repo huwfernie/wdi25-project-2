@@ -1,79 +1,115 @@
-trips - edit
 
-<p>
-  value="<%= trip %>"
-</p>
-<form method="POST" action="/trips/<%= trip.id %>">
-  <input type="hidden" name="_method" value="PUT">
-    <div>
-      <label for="title">Title?</label>
-      <input type="text" name="title" id="title" value="<%= trip.title %>">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-12"></div>
+  </div>
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+
     </div>
-    <div>
-      <label for="when">When?</label>
-      <input type="text" name="when" id="when" value="<%= trip.when %>">
-    </div>
-    <div>
-      <label for="where">Where?</label>
-      <input type="text" name="where" id="where" value="<%= trip.where %>">
-    </div>
-    <div>
-      <label for="who.adults">Who - Adults?</label>
-      <input type="number" name="who[adults]" id="who.adults" value="<%= trip.who.adults %>">
-    </div>
-    <div>
-      <label for="who.children">Who - Children?</label>
-      <input type="number" name="who[children]" id="who.children" value="<%= trip.who.children %>">
-    </div>
-    <div>
-      <label for="how">how?</label>
-      <input type="text" name="how" id="how" value="<%= trip.how %>">
-    </div>
-    <div>
-      <label for="for">for how long?</label>
-      <input type="number" name="for" id="for" value="<%= trip.for %>">
-      days
-    </div>
-    <div>
-      <label for="lat">lat?</label>
-      <input type="number" name="lat" id="lat" value="<%= trip.lat %>">
-      e.g. : 51.515113
-    </div>
-    <div>
-      <label for="long">long?</label>
-      <input type="number" name="long" id="long" value="<%= trip.long %>">
-      e.g. : -0.072051
-    </div>
-    <div>
-      <label for="words">Write your Travel diary here:</label>
-      <input type="text" name="words" id="words" value="<%= trip.words %>">
-    </div>
-  <p>
-    <button>Update</button>
-  </p>
-</form>
-<div class="outline">
-  <h3>update pictures</h3>
-  <form method="POST" action="/trips/<%= trip.id %>/editGallery" enctype="multipart/form-data">
-    <div>
-      <label for="image">Gallery images</label>
-      <input type="file" name="image" id="image">
-    </div>
-    <button>push this into the array</button>
-  </form>
+  </div>
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
 
 
-  <form method="POST" action="/trips/<%= trip.id %>/edit" enctype="multipart/form-data">
-    <div>
-      <label for="image">Trip cover image</label>
-      <input type="file" name="image" id="image">
-    </div>
-    <button>Upload</button>
-  </form>
+
+
+        <div class="outline">
+
+          <form method="POST" action="/trips/<%= trip.id %>">
+            <input type="hidden" name="_method" value="PUT">
+              <div>
+                <label for="title">Title?</label>
+                <input type="text" name="title" id="title" value="<%= trip.title %>">
+              </div>
+              <div>
+                <label for="when">When?</label>
+                <input type="text" name="when" id="when" value="<%= trip.when %>">
+              </div>
+              <div>
+                <label for="where">Where?</label>
+                <input type="text" name="where" id="where" value="<%= trip.where %>">
+              </div>
+              <div>
+                <label for="who.adults">Who - Adults?</label>
+                <input type="number" name="who[adults]" id="who.adults" value="<%= trip.who.adults %>">
+              </div>
+              <div>
+                <label for="who.children">Who - Children?</label>
+                <input type="number" name="who[children]" id="who.children" value="<%= trip.who.children %>">
+              </div>
+              <div>
+                <label for="how">how?</label>
+                <input type="text" name="how" id="how" value="<%= trip.how %>">
+              </div>
+              <div>
+                <label for="for">for how long?</label>
+                <input type="number" name="for" id="for" value="<%= trip.for %>">
+                days
+              </div>
+              <div>
+                <label for="lat">lat?</label>
+                <input type="number" name="lat" id="lat" value="<%= trip.lat %>">
+                e.g. : 51.515113 (negative for south)
+              </div>
+              <div>
+                <label for="long">long?</label>
+                <input type="number" name="long" id="long" value="<%= trip.long %>">
+                e.g. : -0.072051 (negative for west)
+              </div>
+              <div>
+                <label for="words">Write your Travel diary here:</label>
+                <input class="tripInput" type="text" name="words" id="words" value="<%= trip.words %>">
+              </div>
+            <p>
+              <button>Update</button>
+            </p>
+          </form>
+          <div class="outline">
+            <h3>update pictures</h3>
+            <p>
+              <form method="POST" action="/trips/<%= trip.id %>/editGallery" enctype="multipart/form-data">
+                <div>
+                  <label for="image">Gallery images</label>
+                  <input type="file" name="image" id="image"><button>push this into the array</button>
+                </div>
+              </form>
+            </p>
+
+            <p>
+              <form method="POST" action="/trips/<%= trip.id %>/edit" enctype="multipart/form-data">
+                <div>
+                  <label for="image">Trip cover image</label>
+                  <input type="file" name="image" id="image"><button>Upload</button>
+                </div>
+              </form>
+            </p>
+          </div>
+
+
+          <form action="/trips/<%= trip.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <p>
+              <button>delete this trip</button>
+            </p>
+          </form>
+
+      </div>
+
+
+
+      </div>
+    <div class="col-md-1"></div>
+  </div>
 </div>
-<form action="/trips/<%= trip.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <p>
-    <button>delete</button>
-  </p>
-</form>

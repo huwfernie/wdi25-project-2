@@ -59,7 +59,6 @@ function showRoute(req, res)  {
   .exec()
   .then((trip) => {
     if(!trip) return res.notFound();
-    console.log( markdown.toHTML( 'Hello *World*!' ) );
     trip.words = markdown.toHTML(trip.words);
     // console.log('here');
     // console.log(trip);

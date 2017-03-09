@@ -1,13 +1,47 @@
-trips /index.ejs
-<div class="outline">
-  <ul>
-    <% trips.forEach((trip) => { %>
-      <li class="none">
-        <div class="outline">
-          title: <%= trip.title %><br>
-          <a href="/trips/<%= trip.id %>">details</a>
-        </div>
-      </li>
-    <% }); %>
-  </ul>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">You searched for:</div>
+  </div>
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4"><a href="/trips/map"><div class="tripIndexButton">View results on the map</div></a></div>
+        <div class="col-3"><div class="tripIndexButton">Guided</div></div>
+        <div class="col-3"><div class="tripIndexButton">Independant</div></div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <ul>
+          <% trips.forEach((trip) => { %>
+            <li class="none">
+              <div class="tripOutline">
+                <img class="tripIndexPicture" src="<%= trip.imageHero %>">
+                  <span class="tripTitle">title: <%= trip.title %></span>
+                <a class="right" href="/trips/<%= trip.id %>">details</a>
+              </div>
+            </li>
+          <% }); %>
+        </ul>
+
+
+    </div>
+    <div class="col-md-2"></div>
+  </div>
 </div>

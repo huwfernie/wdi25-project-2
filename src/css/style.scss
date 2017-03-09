@@ -6,9 +6,15 @@ body {
 .outline {
   border: 1px solid black;
   min-width: 300px;
-  max-width: 600px;
+  // max-width: 600px;
   padding: 30px;
-  margin: 20px;
+  margin: 20px 0;
+}
+.outlineInner {
+  border: 1px solid black;
+  min-width: 300px;
+  // max-width: 600px;
+
 }
 
 .alert {
@@ -16,16 +22,17 @@ body {
   -webkit-box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
   color: red;
   padding: 0 20px;
-
 }
 
-
+a:hover {
+  text-decoration: none;
+}
 
 header {
   background: white;
   height: 40px;
   line-height: 40px;
-  padding: 0;
+  padding: 0 30px;
   margin: 0;
   border: 0;
   width: 100%;
@@ -37,9 +44,7 @@ header {
   }
 }
 
-.carousel-item {
-  height: 1px;
-}
+
 
 .addButton {
   background: red;
@@ -47,9 +52,7 @@ header {
   border: 1px solid black;
   border-radius: 10px;
   width: 110px;
-  position: absolute;
-  top: 40px;
-  right: 0;
+  float: right;
   text-align: center;
   margin: 5px;
   &:hover{
@@ -59,7 +62,7 @@ header {
 
 #hero {
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
   background-position: center;
   background-size: cover;
   position: relative;  //the parent has to be relative
@@ -78,12 +81,20 @@ header {
     position: absolute;
     top: 80%;
     left: 10%;
+    border-radius: 20px;
   }
 }
 
 
-// End of Index styling
+.img-huw-large {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  float: left;
+}
 
+// End of Index styling
+// start of map page styling
 #map {
   height: 60vh;
   width: 100%;
@@ -96,4 +107,124 @@ header {
   transform: translate(-50%, -50%);
   color: inherit;
   width: 70vw;
+}
+
+// End of map styling
+// start of trips/index page styling
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  li {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+
+// .col-md-8 {
+//   background: green;
+// }
+// .col-md-2 {
+//   background: red;
+// }
+// .col-md-1 {
+//   background: blue;
+// }
+
+
+.clearHeader {
+  height: 42px;
+  background: blue;
+  opacity: 0;
+}
+
+.searchTerms {
+  height: 100px;
+  line-height: 100px;
+}
+
+.tripIndexButton {
+  background: red;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  min-height: 20px;
+  padding: 5px 10px;
+
+}
+
+.tripOutline {
+  border: 1px solid black;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+.tripIndexPicture {
+  width: 75px;
+  height: 75px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.right {
+  float: right
+}
+
+.tripTitle {
+  margin-left: 20px;
+}
+
+.jumbotron {
+ //background-image: url(https://wdi-25-london-project2.s3-eu-west-1.amazonaws.com/9c9b92b0-94fc-48da-bcf3-aa4243518976.png);
+}
+
+.tripDetails {
+  margin: 10px 5px;
+}
+
+.galleryImage {
+  height: 150px;
+  width: 150px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+
+// the new trip page
+
+.tripInput {
+  display: block;
+  width: 90%;
+  min-height: 200px;
+}
+
+
+// public user/show page
+
+
+.userImageHero {
+  width: 100%;
+  height: 400px;
+}
+
+.hero {
+  border: 1px solid black;
+  position: relative;
+  padding: -15px;
+
+}
+.userImageProfile {
+  height: 175px;
+  width: 175px;
+  position: absolute;  // if the child is absolute
+  bottom: 0;
+  left: 130px;
+  border: 5px solid white;
+  border-radius: 10px;
 }

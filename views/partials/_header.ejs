@@ -1,31 +1,38 @@
-Header:
-<a href="/">Index</a>
-<a href="/trips/map">Map</a>
-<a href="/trips">trips</a>
+<div>
+  Header:
+  <a href="/">Index</a>
+  <a href="/trips/map">Map</a>
+  <a href="/trips">trips</a>
 
-<a href="/users">users-all</a>
+  <a href="/users">users-all</a> <%# DELETE THIS SOON %>
 
 
-<% if(locals.isAuthenticated) { %>
-  <a href="/logout">logout</a>
-  <a href="/users/<%= user.id %>">Your profile page</a>
-  <a href="/trips/new">trips-new</a>
-<% } else { %>
-  <a href="/login">Login or Register</a>
-<% } %>
+  <% if(locals.isAuthenticated) { %>
+    <a href="/logout">logout</a>
+    <a href="/users/<%= user.id %>">Your profile page</a>
+    <a href="/trips/new">trips-new</a>
+  <% } else { %>
+    <a href="/login">Login or Register</a>
+  <% } %>
 
-<span class="headerUserSection">
-  <span class="alert">
+
+
+  <span class="headerUserSection">
+    <span class="alert">
+      <% if(locals.isAuthenticated) { %>
+        You are logged in
+      <% } else { %>
+        you are not logged in
+      <% } %>
+    </span>
+
     <% if(locals.isAuthenticated) { %>
-      You are logged in
-    <% } else { %>
-      you are not logged in
+      hello : <%= user.username %>
     <% } %>
   </span>
 
-  <% if(locals.isAuthenticated) { %>
-    hello : <%= user.username %>
-  <% } %>
-</span>
+</div>
 
-<a href="/trips/new"><div class="addButton">Add your trip</div></a>
+<div>
+  <a href="/trips/new"><div class="addButton">Add your trip</div></a>
+</div>

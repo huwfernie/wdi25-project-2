@@ -1,53 +1,103 @@
-trips / show
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-12"></div>
+  </div>
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 clearHeader"></div>
+  </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
 
 
-<p>
-  trip: <%= trip %>
-</p>
 
-<div class="outline">
-  <img src="<%= locals.trip.imageHero %>">
-  <p>
-    <%= locals.trip.title %>
-  </p>
-  images: <%= locals.trip.images %></br>
-  when: <%= locals.trip.when %></br>
-  where: <%= locals.trip.where %></br>
-  Who: <%= locals.trip.who %></br>
-  Adults: <%= locals.trip.who["adults"] %></br>
-  Children: <%= locals.trip.who.children %></br>
-  how: <%= locals.trip.how %></br>
-  for: <%= locals.trip.for %> days</br>
-  Description: <%- locals.trip.words %> </br>
-  lat: <%= locals.trip.lat %> </br>
-  long: <%= locals.trip.long %> </br>
-  long: <%= locals.trip.long %> </br>
 
-  <ul>
-    <% locals.trip.imageGallery.forEach((trip) => { %>
-      <li class="none">
         <div class="outline">
-          <img src="<%= trip %>">
+
+          <div class="jumbotron jumbotron-fluid">
+              <img src="<%= locals.trip.imageHero %>">
+            <div class="container">
+              <h1 class="display-3">Fluid jumbotron</h1>
+              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            </div>
+          </div>
+
+          <p>
+            <h3><%= locals.trip.title %></h3>
+          </p>
+          <p>
+          This is a record of: <span class="tripDetails"><%= locals.trip.when %></span> <span class="tripDetails"><%= locals.trip.how %></span> in
+          <span class="tripDetails"><%= locals.trip.where %>.</span>
+          </P>
+          <p>
+          <span class="tripDetails">For <%= locals.trip.for %> days</span>, with <span class="tripDetails"><%= locals.trip.who['adults'] %> adults</span> and <span class="tripDetails"><%= locals.trip.who['children'] %> children.</span>
+          </p>
+          <p>
+            Possition:
+            <span class="tripDetails">lat: <%= locals.trip.lat %> </span>
+            <span class="tripDetails">long: <%= locals.trip.long %> </span>
+          </p>
+
+
+
+
+
+
+          <div class="outline">
+            <span class="tripDetails">Description: <%- locals.trip.words %> </span>
+          </div>
+
+          <div class="outline">
+            <h3>Gallery</h3>
+              <% locals.trip.imageGallery.forEach((trip) => { %>
+                    <img class="galleryImage" src="<%= trip %>">
+              <% }); %>
+          </div>
+
+
+
+
+
+
+
+
+          <div class="tripOutline">
+            <img class="tripIndexPicture" src="<%= trip.createdBy['imageProfile'] %>">
+              <span class="tripTitle">Written by: <%= trip.createdBy['username'] %></span>
+            <a class="right" href="/users/<%= trip.createdBy['_id'] %>">View Profile</a>
+          </div>
+
+
+
+          <% if(locals.isAuthenticated && (user.id == trip.createdBy['_id'])) { %>
+          <p>
+            <a href="/trips/<%= trip.id %>/edit"><button>Edit this trip</button></a>
+          </p>
+          <p>
+            <form method="POST" action="/trips/<%= trip.id %>">
+              <input type="hidden" name="_method" value="DELETE">
+              <button>Delete this trip</button>
+            </form>
+          </p>
+          <% } %>
+
+
+
         </div>
-      </li>
-    <% }); %>
-  </ul>
-
-  <p>
-    written by: <%= trip.createdBy['username'] %> <br>
-    who looks like <img src="<%= trip.createdBy['imageProfile'] %>"><br>
-    <a href="/users/<%= trip.createdBy['_id'] %>">Look at their profile</a>
-  </p>
-
-  <% if(locals.isAuthenticated && (user.id == trip.createdBy['_id'])) { %>
-  <p>
-    <a href="/trips/<%= trip.id %>/edit"><button>Edit this trip</button></a>
-  </p>
-  <p>
-    <form method="POST" action="/trips/<%= trip.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <button>Delete this trip</button>
-    </form>
-  </p>
-  <% } %>
+      </div>
+    <div class="col-md-1"></div>
+  </div>
 </div>
