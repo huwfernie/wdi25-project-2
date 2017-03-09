@@ -1,15 +1,28 @@
 const Trip = require('../models/trip');
 
 function indexRoute(req, res) {
-  Trip
-  .find()
-  .exec()
-  .then((trips) => {
-    res.render('trips/index', { trips });
-  })
-  .catch((err) => {
-    res.badRequest(500, err);
-  });
+  if(req.query.q === '') {
+    req.flash('alert', `showing all trips`);
+    Trip
+    .find()
+    .exec()
+    .then((trips) => {
+      if(!trips) return res.notFound();
+      res.render('trips/index', { trips });
+    });
+  } else {
+    req.flash('alert', `showing trips that match "${req.query.q}"`);
+    Trip
+    .find({ when: req.query.q.toLowerCase() })
+    .exec()
+    .then((trips) => {
+      if(!trips) return res.notFound();
+      res.render('trips/index', { trips });
+    })
+    .catch((err) => {
+      res.badRequest(500, err);
+    });
+  }
 }
 
 function mapRoute(req, res) {
@@ -155,13 +168,13 @@ function createImageGalleryRoute(req, res, next) {
 
 module.exports = {
   index: indexRoute,
-  map: mapRoute,// what should this be called??
+  map: mapRoute,
   show: showRoute,
   new: newRoute,
   create: createRoute,
   edit: editRoute,
   update: updateRoute,
   delete: deleteRoute,
-  createImageHero: createImageHeroRoute, // this too?
-  createImageGallery: createImageGalleryRoute // this too?
+  createImageHero: createImageHeroRoute,
+  createImageGallery: createImageGalleryRoute
 };

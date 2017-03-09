@@ -17,7 +17,7 @@ function indexRoute(req, res) {
   Trip
   .find({ imageHero: { $exists: true } })
   .sort({ '_id': -1})
-  .limit(6)
+  .limit(3)
   .exec()
   .then((trips) => {
     res.render('statics/index', { trips });

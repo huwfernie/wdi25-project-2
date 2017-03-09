@@ -30,7 +30,7 @@ const legSchema = new mongoose.Schema({
 const tripSchema = new mongoose.Schema({
   title: String,
   words: String,
-  when: String,
+  when: String, // Summer or Winter
   where: String,
   who: { adults: Number, children: Number },
   how: String,

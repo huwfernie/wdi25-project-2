@@ -66,4 +66,20 @@ $(function () {
     // Finally, open the new InfoWindow
     infowindow.open(map, marker);
   }
+
+
+// End of the map stuff -------------------------------------------------------
+
+// start of the search --------------------------------------------------------
+  // console.log('Loaded');
+  // $('form').on('submit', submitted);
+  //
+  // function submitted(e) {
+  //   e.preventDefault();
+  //   console.log('click');
+  //   console.log($('form input[name=q]').val());
+  // }
+
+
+
 });
