@@ -2,3 +2,81 @@ body {
   background-color: white;
   color: grey;
 }
+
+.outline {
+  border: 1px solid black;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 30px;
+  margin: 20px;
+}
+
+.alert {
+  color: red;
+  padding: 0 20px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+ }
+
+header {
+  background: white;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 5;
+  .headerUserSection {
+    float: right;
+  }
+}
+
+.carousel-item {
+  height: 1px;
+}
+
+.addButton {
+  background: red;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 110px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  text-align: center;
+  margin: 5px;
+  &:hover{
+    background: darkred;
+  }
+}
+
+#hero {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
+  background-position: center;
+  background-size: cover;
+  position: relative;  //the parent has to be relative
+  h1 {
+    font-size: 36px;
+    position: absolute;  // if the child is absolute
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .authorImage {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+  }
+}

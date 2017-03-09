@@ -1,55 +1,37 @@
-index
-<h1> project-2 </h1>
 
-
-Show me <a href="/trips">trips</a>
-
-
-<form method="get" action="/trips">
-  <label>Search</label>
-  <input type="text" name="q" value="Winter" placeholder="search gifs">
-  <input type="submit" value="Go!">
-</form>
-
-
-
-<%= trips %><br>
-<hr>
-
-<div class="outline">
-  <ul>
-    <% trips.forEach((trip) => { %>
-      <li class="none">
-        <div class="outline">
-          here
-          <%= trip.title %>
-        <img src="<%= trip.imageHero %>">
-        </div>
-      </li>
-    <% }); %>
-  </ul>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <img class="d-block img-fluid" src="<%=trips[0].imageHero %>" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="<%=trips[1].imageHero %>" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="<%=trips[2].imageHero %>" alt="Third slide">
+<div id="hero">
+  <h1>
+    <form method="get" action="/trips">
+      <label>Search</label>
+      <input type="text" name="q" value="Winter" placeholder="search gifs">
+      <input type="submit" value="Go!">
+    </form>
+  </h1>
+  <div class="container">
+    <div class="row">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="<%=trips[0].imageHero %>" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="<%=trips[1].imageHero %>" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="<%=trips[2].imageHero %>" alt="Third slide">
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="authorImage">
+    Author
+  </div>
+
 </div>

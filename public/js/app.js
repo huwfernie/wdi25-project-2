@@ -1,4 +1,8 @@
+'use strict';
+
 /* global google:ignore */
+// import {markdown} from '../lib/markdown';
+// console.log( markdown.toHTML( 'Hello *World*!' ) );
 
 $(function () {
 
@@ -24,14 +28,12 @@ $(function () {
 
   function getTrips() {
 
-    const trips = $('#mapData').data('trips');
+    var trips = $('#mapData').data('trips');
 
-    trips.forEach((trip) => {
+    trips.forEach(function (trip) {
       //console.log(trip);
       addMarker(trip);
     });
-
-
   }
 
   function addMarker(trip) {
@@ -59,18 +61,17 @@ $(function () {
 
     // Update the infowindow variable to be a new Google InfoWindow
     infowindow = new google.maps.InfoWindow({
-      content: `<p>${tripName}</p>
-                <p><a href="/trips/${tripId}">details</a></p>`
+      content: '<p>' + tripName + '</p>\n                <p><a href="/trips/' + tripId + '">details</a></p>'
     });
 
     // Finally, open the new InfoWindow
     infowindow.open(map, marker);
   }
 
+  // End of the map stuff -------------------------------------------------------
 
-// End of the map stuff -------------------------------------------------------
 
-// start of the search --------------------------------------------------------
+  // start of the search --------------------------------------------------------
   // console.log('Loaded');
   // $('form').on('submit', submitted);
   //
@@ -79,7 +80,5 @@ $(function () {
   //   console.log('click');
   //   console.log($('form input[name=q]').val());
   // }
-
-
 
 });

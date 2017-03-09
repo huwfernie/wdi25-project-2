@@ -1,6 +1,9 @@
 const Trip = require('../models/trip');
+const markdown = require( 'markdown' ).markdown;
+
 
 function indexRoute(req, res) {
+  console.log( markdown.toHTML( 'Hello *World*!' ) );
   if(req.query.q === '' || !req.query.q ) {
     req.flash('alert', `showing all trips`);
     Trip
@@ -44,6 +47,8 @@ function showRoute(req, res)  {
   .exec()
   .then((trip) => {
     if(!trip) return res.notFound();
+    console.log( markdown.toHTML( 'Hello *World*!' ) );
+    trip.words = markdown.toHTML(trip.words);
     // console.log('here');
     // console.log(trip);
     // console.log(trip.createdBy);

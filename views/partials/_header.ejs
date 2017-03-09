@@ -1,9 +1,10 @@
-Header
+Header:
 <a href="/">Index</a>
 <a href="/trips/map">Map</a>
 <a href="/trips">trips</a>
 
 <a href="/users">users-all</a>
+
 
 <% if(locals.isAuthenticated) { %>
   <a href="/logout">logout</a>
@@ -13,15 +14,18 @@ Header
   <a href="/login">Login or Register</a>
 <% } %>
 
-<span class="alert">
+<span class="headerUserSection">
+  <span class="alert">
+    <% if(locals.isAuthenticated) { %>
+      You are logged in
+    <% } else { %>
+      you are not logged in
+    <% } %>
+  </span>
+
   <% if(locals.isAuthenticated) { %>
-    You are logged in
-  <% } else { %>
-    you are not logged in
+    hello : <%= user.username %>
   <% } %>
 </span>
 
-<% if(locals.isAuthenticated) { %>
-  hello : <%= user.username %>
-<% } %>
-<hr>
+<a href="/trips/new"><div class="addButton">Add your trip</div></a>
