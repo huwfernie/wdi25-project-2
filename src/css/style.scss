@@ -1,6 +1,10 @@
+@import "variables/_fonts.scss";
+@import "variables/_colors.scss";
+
 body {
   background-color: white;
   color: grey;
+  font-family: $main-font;
 }
 
 .outline {
@@ -20,14 +24,22 @@ body {
 .alert {
   box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
   -webkit-box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
-  color: red;
+  color: $second-color;
   padding: 0 20px;
 }
 
-a:hover {
-  text-decoration: none;
+.headerLink {
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-left: 50px;
+  color: $primary-color;
+  &:hover {
+    text-decoration: none;
+    color: $second-color;
+  }
 }
-
 header {
   background: white;
   height: 40px;
@@ -47,17 +59,51 @@ header {
 
 
 .addButton {
-  background: red;
+  background: $second-color;
   color: white;
-  border: 1px solid black;
+  border: 1px solid $second-color;
+  // padding: 10px 30px;
   border-radius: 10px;
-  width: 110px;
+  width: 260px;
   float: right;
   text-align: center;
   margin: 5px;
   &:hover{
-    background: darkred;
+    background: $primary-color;
+    border-color: $primary-color;
   }
+}
+
+.butt {
+  font-size: 30px;
+  background: $second-color;
+  color: white;
+  border: 1px solid $second-color;
+  // padding: 10px 30px;
+  border-radius: 10px;
+  width: 150px;
+  margin-bottom: 2px;
+  float: right;
+  text-align: center;
+  margin: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  &:hover{
+    background: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.indexForm {
+  font-family: $main-font;
+  color: $second-color;
+}
+
+.indexFormText {
+  font-family: $main-font;
+  font-size: 35px;
+
+  color: grey;
 }
 
 #hero {
@@ -147,17 +193,18 @@ ul{
 }
 
 .tripIndexButton {
-  background: red;
+  background: $primary-color;
   border-radius: 10px;
   color: white;
   text-align: center;
   min-height: 20px;
   padding: 5px 10px;
+  font-size: 15px;
 
 }
 
 .tripOutline {
-  border: 1px solid black;
+  border: 3px solid $second-color;
   min-width: 300px;
   max-width: 600px;
   padding: 30px;
@@ -168,7 +215,7 @@ ul{
 .tripIndexPicture {
   width: 75px;
   height: 75px;
-  border: 2px solid black;
+  border: 0px solid black;
   border-radius: 10px;
 }
 
@@ -178,6 +225,11 @@ ul{
 
 .tripTitle {
   margin-left: 20px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: $second-color;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .jumbotron {
@@ -227,4 +279,21 @@ ul{
   left: 130px;
   border: 5px solid white;
   border-radius: 10px;
+}
+
+
+.jumbotron-huw {
+  max-height: 600px;
+}
+
+.oulineCenter {
+  margin: 0 auto;
+}
+
+
+.butt2 {
+  padding: 0px 7px;
+  background: white;
+  border: 1px solid grey;
+  color: black;
 }

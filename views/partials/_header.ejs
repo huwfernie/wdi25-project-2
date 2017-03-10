@@ -1,18 +1,18 @@
 <div>
-  Header:
-  <a href="/">Index</a>
-  <a href="/trips/map">Map</a>
-  <a href="/trips">trips</a>
 
-  
+  <a class="headerLink" href="/">Index</a>
+  <a class="headerLink" href="/trips/map">Map</a>
+  <a class="headerLink" href="/trips">trips</a>
+
+
 
 
   <% if(locals.isAuthenticated) { %>
-    <a href="/logout">logout</a>
-    <a href="/users/<%= user.id %>">Your profile page</a>
-    <a href="/trips/new">trips-new</a>
+    <a class="headerLink" href="/logout">logout</a>
+    <a class="headerLink" href="/users/<%= user.id %>">Your profile page</a>
+    <a class="headerLink" href="/trips/new">trips-new</a>
   <% } else { %>
-    <a href="/login">Login or Register</a>
+    <a class="headerLink" href="/login">Login or Register</a>
   <% } %>
 
 
