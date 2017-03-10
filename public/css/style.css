@@ -7,3 +7,16 @@ body{background-color:#fff;color:grey}.outline{border:1px solid #000;min-width:3
 .oulineCenter {
   margin: 0 auto;
 }
+
+.butt1 {
+  padding: 2px 7px;
+  background: white;
+  border: 1px solid grey;
+  color: black;
+}
+.butt2 {
+  padding: 0px 7px;
+  background: white;
+  border: 1px solid grey;
+  color: black;
+}
