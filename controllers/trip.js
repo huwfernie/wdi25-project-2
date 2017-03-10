@@ -1,5 +1,8 @@
 const Trip = require('../models/trip');
-const markdown = require( 'markdown' ).markdown;
+//const markdown = require( 'markdown' ).markdown;
+const showdown = require('showdown');
+
+
 
 
 function indexRoute(req, res) {
@@ -59,16 +62,22 @@ function showRoute(req, res)  {
   .exec()
   .then((trip) => {
     if(!trip) return res.notFound();
-    trip.words = markdown.toHTML(trip.words);
+    //trip.words = markdown.toHTML(trip.words);
+    const  converter = new showdown.Converter({simpleLineBreaks: 'true'}),
+      // text      = '#hello, markdown!',
+      htmlHUW      = converter.makeHtml(trip.words);
     // console.log('here');
     // console.log(trip);
     // console.log(trip.createdBy);
-    res.render('trips/show', { trip });
+    res.render('trips/show', { trip, htmlHUW });
   })
   .catch((err) => {
     res.badRequest(500, err);
   });
 }
+
+
+
 
 // renders the page to write a new log entry
 function newRoute(req, res) {
