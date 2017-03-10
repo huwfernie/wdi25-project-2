@@ -84,7 +84,7 @@ function createImageProfileRoute(req, res, next) {
 
   req.user
     .save()
-    .then(() => res.redirect('/users/:id'))
+    .then(() => res.redirect(`/users/${req.user.id}`))
     .catch((err) => {
       console.log(err);
       if(err.name === 'ValidationError') return res.badRequest('/user/images/new', err.toString());
@@ -100,7 +100,7 @@ function createImageHeroRoute(req, res, next) {
   user.imageHero = file;
   req.user
     .save()
-    .then(() => res.redirect('/users/:id'))
+    .then(() => res.redirect(`/users/${req.user.id}`))
     .catch((err) => {
       console.log(err);
       if(err.name === 'ValidationError') return res.badRequest('/user/images/new', err.toString());
