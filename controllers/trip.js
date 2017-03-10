@@ -1,5 +1,5 @@
 const Trip = require('../models/trip');
-//const markdown = require( 'markdown' ).markdown;
+const markdown = require( 'markdown' ).markdown;
 const showdown = require('showdown');
 
 
@@ -62,14 +62,15 @@ function showRoute(req, res)  {
   .exec()
   .then((trip) => {
     if(!trip) return res.notFound();
-    //trip.words = markdown.toHTML(trip.words);
-    const  converter = new showdown.Converter({simpleLineBreaks: 'true'}),
-      // text      = '#hello, markdown!',
-      htmlHUW      = converter.makeHtml(trip.words);
+    trip.words = markdown.toHTML(trip.words);
+    var showdown  = require('showdown'),
+      converter = new showdown.Converter(),
+      text      = '#hello, markdown!',
+      html      = converter.makeHtml(text);
     // console.log('here');
     // console.log(trip);
     // console.log(trip.createdBy);
-    res.render('trips/show', { trip, htmlHUW });
+    res.render('trips/show', { trip, html });
   })
   .catch((err) => {
     res.badRequest(500, err);
