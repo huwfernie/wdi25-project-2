@@ -1,24 +1,74 @@
-      <img class="d-block img-huw-large" src="<%=trips[0].imageHero %>" alt="First slide">
 
-<div id="hero">
-  <h1>
-    <div>
-      <form class="indexForm" method="get" action="/trips">
+
+
+<div class="indexTopLayer">
+  <% include ../partials/_indexSearchForm %>
+
+
+  <div id="hero">
+    <h1>
+      <form method="get" action="/trips">
         <label>Search</label>
-        <input class="indexFormText" type="text" name="q" value="Winter" placeholder="search trips">
-
-        <button class="butt">List</button>
-        <%# <a href="/trips/map"><span class="butt2">Map</span></a>%>
+        <input type="text" name="q" value="Winter" placeholder="search gifs">
+        <input type="submit" action="/trips" value="List!">
+        <input type="submit" action="/trips" value="Map!">
       </form>
+    </h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
 
+
+
+              <div class="carousel-item active">
+                <div class="fullScreen" style="background-image:url(<%=trips[0].imageHero %>);">
+                  <div class="authorInfo">
+      <div class="authorImage" style="background-image:url(<%=trips[0].createdBy['imageProfile']%>);"></div>
+                    <span class="authorImageTitle"><%=trips[0].title%></span><br>
+                    <span class="authorImageSubTitle">by: <%=trips[0].createdBy['username']%></span>
+                  </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="carousel-item">
+              <div class="fullScreen" style="background-image:url(<%=trips[1].imageHero %>);">
+                <div class="authorInfo">
+    <div class="authorImage" style="background-image:url(<%=trips[1].createdBy['imageProfile']%>);"></div>
+                  <span class="authorImageTitle"><%=trips[1].title%></span><br>
+                  <span class="authorImageSubTitle">by: <%=trips[1].createdBy['username']%></span>
+                </div>
+            </div>
+          </div>
+
+
+
+          <div class="carousel-item">
+            <div class="fullScreen" style="background-image:url(<%=trips[2].imageHero %>);">
+              <div class="authorInfo">
+  <div class="authorImage" style="background-image:url(<%=trips[2].createdBy['imageProfile']%>);"></div>
+                <span class="authorImageTitle"><%=trips[2].title%></span><br>
+                <span class="authorImageSubTitle">by: <%=trips[2].createdBy['username']%></span>
+              </div>
+          </div>
+        </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </h1>
-
-
-
-  <div class="authorImage">
-    Author
 
   </div>
-
 </div>

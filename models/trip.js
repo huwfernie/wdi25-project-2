@@ -36,6 +36,7 @@ const tripSchema = new mongoose.Schema({
   how: String,
   for: Number,
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  authorImage: { type: mongoose.Schema.ObjectId, ref: 'User' },
   legs: [ legSchema ],
   lat: Number,
   long: Number,

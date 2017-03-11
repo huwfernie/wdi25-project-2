@@ -16,6 +16,7 @@ const Trip = require('../models/trip');
 function indexRoute(req, res) {
   Trip
   .find({ imageHero: { $exists: true } })
+  .populate('createdBy')
   .sort({ '_id': -1})
   .limit(3)
   .exec()

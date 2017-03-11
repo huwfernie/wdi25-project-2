@@ -7,18 +7,43 @@ body {
   font-family: $main-font;
 }
 
-.outline {
-  border: 1px solid black;
-  min-width: 300px;
-  // max-width: 600px;
-  padding: 30px;
-  margin: 20px 0;
+.indexTopLayer {
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
+  background-position: center;
+  background-size: cover;
+  //position: relative;  //the parent has to be relative
+  h1 {
+    font-size: 36px;
+    position: absolute;  // if the child is absolute
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
 }
+
+.outline {
+    border: 3px solid $second-color;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+  }
+
 .outlineInner {
   border: 1px solid black;
   min-width: 300px;
   // max-width: 600px;
+}
 
+.fullScreen {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
 }
 
 .alert {
@@ -102,12 +127,13 @@ header {
 .indexFormText {
   font-family: $main-font;
   font-size: 35px;
-
   color: grey;
 }
 
 #hero {
+  z-index: -1;
   height: 100vh;
+  width: 100vw;
   // background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
   background-position: center;
   background-size: cover;
@@ -120,14 +146,34 @@ header {
     transform: translate(-50%, -50%);
     color: white;
   }
-  .authorImage {
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
+  .authorInfo {
     position: absolute;
     top: 80%;
     left: 10%;
     border-radius: 20px;
+    width: 70%;
+    font-family: $main-font;
+    color: $second-color;
+    font-size: 30px;
+    line-height: 60px;
+    font-weight: 500;
+  }
+  .authorImage {
+    height: 120px;
+    width: 120px;
+    border: 2px solid white;
+    background-position: center;
+    background-size: cover;
+    float: left;
+    border-radius: 20px;
+  }
+  .authorImageTitle {
+    padding-left: 20px;
+  }
+  .authorImageSubTitle {
+    padding-left: 40px;
+    font-size: 20px;
+
   }
 }
 
@@ -200,7 +246,6 @@ ul{
   min-height: 20px;
   padding: 5px 10px;
   font-size: 15px;
-
 }
 
 .tripOutline {
