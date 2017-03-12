@@ -147,6 +147,7 @@ header {
     color: white;
   }
   .authorInfo {
+
     position: absolute;
     top: 80%;
     left: 10%;
@@ -159,6 +160,7 @@ header {
     font-weight: 500;
   }
   .authorImage {
+    z-index: 20;
     height: 120px;
     width: 120px;
     border: 2px solid white;
@@ -336,9 +338,6 @@ ul{
 }
 
 
-.butt2 {
-  padding: 0px 7px;
-  background: white;
-  border: 1px solid grey;
-  color: black;
+.btn-github {
+  margin: 0 auto;
 }
