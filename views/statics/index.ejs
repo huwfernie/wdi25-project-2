@@ -1,19 +1,8 @@
+<% include ../partials/_indexSearchForm %>
 
-
-
-<div class="indexTopLayer">
-  <% include ../partials/_indexSearchForm %>
-
-
+<div class="indexCarouselLayer">
   <div id="hero">
-    <h1>
-      <form method="get" action="/trips">
-        <label>Search</label>
-        <input type="text" name="q" value="Winter" placeholder="search gifs">
-        <input type="submit" action="/trips" value="List!">
-        <input type="submit" action="/trips" value="Map!">
-      </form>
-    </h1>
+
     <div class="container-fluid">
       <div class="row">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -29,7 +18,7 @@
               <div class="carousel-item active">
                 <div class="fullScreen" style="background-image:url(<%=trips[0].imageHero %>);">
                   <div class="authorInfo">
-      <a href="#"><div class="authorImage" style="background-image:url(<%=trips[0].createdBy['imageProfile']%>);"></div></a>
+      <a href="/users/<%= trips[0].createdBy['_id'] %>"><div class="authorImage" style="background-image:url(<%=trips[0].createdBy['imageProfile']%>);"></div></a>
                     <span class="authorImageTitle"><%=trips[0].title%></span><br>
                     <span class="authorImageSubTitle">by: <%=trips[0].createdBy['username']%></span>
                   </div>

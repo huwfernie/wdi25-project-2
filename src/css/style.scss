@@ -7,9 +7,77 @@ body {
   font-family: $main-font;
 }
 
-.indexTopLayer {
-  z-index: 1;
-  height: 100vh;
+
+header {
+  background: white;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 30px;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 5;
+  .headerUserSection {
+    float: right;
+  }
+  .headerLink {
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-left: 50px;
+    color: $primary-color;
+    &:hover {
+      text-decoration: none;
+      color: $second-color;
+    }
+  }
+}
+.addButton { // the "add a trip button"
+  background: $second-color;
+  color: white;
+  border: 1px solid $second-color;
+  // padding: 10px 30px;
+  border-radius: 10px;
+  width: 260px;
+  float: right;
+  text-align: center;
+  margin: 5px;
+  &:hover{
+    background: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.indexSearchForm {
+  z-index: auto;
+  height: 50vh;
+  width: 100vw;
+  position: absolute;
+  .indexForm {
+    font-family: $main-font;
+    color: $second-color;
+    font-size: 36px;
+    position: absolute;  // if the child is absolute
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    .indexFormText {
+      font-family: $main-font;
+      font-size: 35px;
+      color: grey;
+    }
+  }
+}
+
+
+
+.indexCarouselLayer {
+  z-index: auto;
+  height: 50vh;
   width: 100vw;
   // background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
   background-position: center;
@@ -24,6 +92,10 @@ body {
     color: white;
   }
 }
+
+
+// --------------------------------- End of Index Page style ---------------
+
 
 .outline {
     border: 3px solid $second-color;
@@ -53,51 +125,11 @@ body {
   padding: 0 20px;
 }
 
-.headerLink {
-  font-size: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding-left: 50px;
-  color: $primary-color;
-  &:hover {
-    text-decoration: none;
-    color: $second-color;
-  }
-}
-header {
-  background: white;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 30px;
-  margin: 0;
-  border: 0;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  z-index: 5;
-  .headerUserSection {
-    float: right;
-  }
-}
 
 
 
-.addButton {
-  background: $second-color;
-  color: white;
-  border: 1px solid $second-color;
-  // padding: 10px 30px;
-  border-radius: 10px;
-  width: 260px;
-  float: right;
-  text-align: center;
-  margin: 5px;
-  &:hover{
-    background: $primary-color;
-    border-color: $primary-color;
-  }
-}
+
+
 
 .butt {
   font-size: 30px;
@@ -119,16 +151,7 @@ header {
   }
 }
 
-.indexForm {
-  font-family: $main-font;
-  color: $second-color;
-}
 
-.indexFormText {
-  font-family: $main-font;
-  font-size: 35px;
-  color: grey;
-}
 
 #hero {
   z-index: -1;

@@ -1,13 +1,25 @@
 
-  <h1>
-    <div>
-      <form class="indexForm" method="get" action="/trips">
-        <label>Search</label>
-        <input class="indexFormText" type="text" name="q" value="Winter" placeholder="search trips">
 
-        <button class="butt">List</button>
-        <%# <a href="/trips/map"><span class="butt2">Map</span></a>%>
-      </form>
+<div class="indexSearchForm">
+  <form class="indexForm" id="indexForm" method="get" action="">
+    <label>Search</label>
+    <input class="indexFormText" type="text" name="q" value="Winter" placeholder="search trips">
+    <input type="text" name="w" value="Where" placeholder="search where">
+    <input type="button" value="List!" onclick="listResults()">
+    <input type="button" value="Map!" onclick="mapResults()">
+  </form>
+</div>
 
-    </div>
-  </h1>
+<script>
+  form=document.getElementById("indexForm");
+  function listResults() {
+    console.log('list');
+    form.action="/trips";
+    form.submit();
+  }
+  function mapResults() {
+    console.log('map');
+    form.action="/trips/map"
+    form.submit();
+  }
+</script>
