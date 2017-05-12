@@ -1,71 +1,57 @@
 
-<div class="container-fluid">
+<div class="container-fluid tripShow">
   <div class="row">
     <div class="col-12 clearHeader"></div>
   </div>
 
   <div class="row">
-    <div class="col-12"></div>
+    <div class="col-12 banner"></div>
   </div>
-  <div class="row">
-    <div class="col-12 clearHeader"></div>
-  </div>
-  <div class="row">
-    <div class="col-12">
 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 clearHeader"></div>
-  </div>
+
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
 
-
-
-
         <div class="outline">
-
-          <div class="oulineCenter">
-              <img class="jumbotron-huw" src="<%= locals.trip.imageHero %>">
-          </div>
+          <img class="tripHeroImage" src="<%= locals.trip.imageHero %>">
 
           <p>
             <h3><%= locals.trip.title %></h3>
           </p>
-          <p>
-          This is a record of: <span class="tripDetails"><%= locals.trip.when %></span> <span class="tripDetails"><%= locals.trip.how %></span> in
-          <span class="tripDetails"><%= locals.trip.where %>.</span>
-          </P>
-          <p>
-          <span class="tripDetails">For <%= locals.trip.for %> days</span>, with <span class="tripDetails"><%= locals.trip.who['adults'] %> adults</span> and <span class="tripDetails"><%= locals.trip.who['children'] %> children.</span>
-          </p>
-          <p>
-            Possition:
-            <span class="tripDetails">lat: <%= locals.trip.lat %> </span>
-            <span class="tripDetails">long: <%= locals.trip.long %> </span>
-          </p>
 
+          <div class="tripDetails">
+            <p>
+              This is a record of:
+            </p>
+            When: <%= locals.trip.when %><br>
+            How: <%= locals.trip.how %><br>
+            in: <%= locals.trip.where %>.
+            </P>
+            <p>
+              For: <%= locals.trip.for %> days
+              with: <%= locals.trip.who['adults'] %> adults and <%= locals.trip.who['children']| '0' %> children.
+            </p>
+            <p>
+              Position:
+              <span>lat: <%= locals.trip.lat %>
+              <span>long: <%= locals.trip.long %>
+            </p>
+          </div>
 
-
-          <div class="outline">
-            <span class="tripDetails">Description: <p><%- locals.trip.words %> </p></span>
+          <div class="blog">
+            Description:
+            <p>
+              <%- locals.trip.words %>
+            </p>
           </div>
 
           <div class="outline">
-            <h3>Gallery</h3>
+            <h4>Gallery</h4>
               <% locals.trip.imageGallery.forEach((trip) => { %>
-                    <img class="galleryImage" src="<%= trip %>">
+                <img class="galleryImage" src="<%= trip %>">
               <% }); %>
           </div>
-
-
-
-
-
-
-
 
           <div class="tripOutline">
             <img class="tripIndexPicture" src="<%= trip.createdBy['imageProfile'] %>">
@@ -73,13 +59,10 @@
             <a class="right" href="/users/<%= trip.createdBy['_id'] %>">View Profile</a>
           </div>
 
-
-
           <% if(locals.isAuthenticated && (user.id == trip.createdBy['_id'])) { %>
           <p>
             <a href="/trips/<%= trip.id %>/edit"><button>Edit this trip</button></a>
-          </p>
-          <p>
+
             <form method="POST" action="/trips/<%= trip.id %>">
               <input type="hidden" name="_method" value="DELETE">
               <button>Delete this trip</button>
