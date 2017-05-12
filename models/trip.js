@@ -34,7 +34,7 @@ const tripSchema = new mongoose.Schema({
   where: String,
   who: { adults: Number, children: Number },
   how: String,
-  for: Number,
+  for: Number, //of days
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   authorImage: { type: mongoose.Schema.ObjectId, ref: 'User' },
   legs: [ legSchema ],
