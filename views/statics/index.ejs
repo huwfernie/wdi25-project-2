@@ -34,8 +34,8 @@
             <div class="carousel-item">
               <div class="fullScreen" style="background-image:url(<%=trips[1].imageHero %>);">
                 <div class="authorInfo">
-    <div class="authorImage" style="background-image:url(<%=trips[1].createdBy['imageProfile']%>);"></div>
-                  <span class="authorImageTitle"><%=trips[1].title%></span><br>
+    <a href="/users/<%= trips[0].createdBy['_id'] %>"><div class="authorImage" style="background-image:url(<%=trips[1].createdBy['imageProfile']%>);"></div></a>
+                  <a href="/trips/<%= trips[0]._id %>"><span class="authorImageTitle"><%=trips[1].title%></span></a><br>
                   <span class="authorImageSubTitle">by: <%=trips[1].createdBy['username']%></span>
                 </div>
             </div>
@@ -46,8 +46,8 @@
           <div class="carousel-item">
             <div class="fullScreen" style="background-image:url(<%=trips[2].imageHero %>);">
               <div class="authorInfo">
-  <div class="authorImage" style="background-image:url(<%=trips[2].createdBy['imageProfile']%>);"></div>
-                <span class="authorImageTitle"><%=trips[2].title%></span><br>
+  <a href="/users/<%= trips[0].createdBy['_id'] %>"><div class="authorImage" style="background-image:url(<%=trips[2].createdBy['imageProfile']%>);"></div></a>
+                <a href="/trips/<%= trips[0]._id %>"><span class="authorImageTitle"><%=trips[2].title%></span></a><br>
                 <span class="authorImageSubTitle">by: <%=trips[2].createdBy['username']%></span>
               </div>
           </div>

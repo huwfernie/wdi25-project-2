@@ -235,7 +235,7 @@ which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.`,
         legs: null,//[ legSchema ],
         lat: 0,
         long: -78.1,
-        imageHero: 'http://wonderopolis.org/wp-content/uploads/2016/11/Can_You_See_The_Equator1_xl_68891535_(Custom).jpg',
+        imageHero: 'https://media.timeout.com/images/101651783/image.jpg',
         imageGallery: []
       }, {
         title: 'Rosers Summer Austria Trip',
@@ -264,7 +264,7 @@ Traunsee Lake Faaker See lake Traunsee Lake Traunsee Lake Worthesee Lake Austria
         legs: null,//[ legSchema ],
         lat: 51.5,
         long: -0.12,
-        imageHero: 'https://media.timeout.com/images/101651783/image.jpg',
+        imageHero: 'https://media1.britannica.com/eb-media/20/191120-004-AD2A2694.jpg',
         imageGallery: []
       }, {
         title: 'Rosers Winter Kayak Trip',

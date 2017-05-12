@@ -1,3 +1,7 @@
+**
+git push heroku master
+heroku run node db/seeds
+**
 
 This is a searchable blogging site, it needs a MongoDB database to work
 

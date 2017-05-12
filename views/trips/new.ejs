@@ -14,6 +14,7 @@
       <div class="outline">
         Write your trip account here:
         <div class="container">
+
           <form method="POST" action="/trips" id="new">
             <div>
               <label for="title">Title?</label>
@@ -54,23 +55,15 @@
 
             <div>
               <label for="words">Write your Travel diary here:</label>
+              <%# Don't change the spacing on the line below! between textarea and itself %>
               <textarea rows="4" cols="50" form="new" name="words" placeholder="A long time ago, in a gallaxy far far away..."></textarea>
             </div>
-
-
-            <%# <div class="outline">
-              <div>
-                <label for="words">Write your Travel diary here:</label>
-                <input class="tripInput" type="text" name="words" id="words">
-              </div>
-            </div>%>
-
-
             <button>Publish</button>
           </form>
+
         </div>
       </div>
-  </div>
+    </div>
   <div class="col-md-1"></div>
   </div>
 </div>
