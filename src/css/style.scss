@@ -422,6 +422,81 @@ ul{
   }
 }
 
+// trip show page ---------------------------------------------------
+
+
+.tripEdit {
+  .banner {
+    height: 100px;
+  }
+  label {
+    margin: 0;
+  }
+  input {
+    display: block;
+    margin-bottom: 15px;
+    width: 50%;
+    padding: 5px;
+    border: 2px solid $second-color;
+    border-radius: 6px;
+    background: inherit;
+    color: inherit;
+  }
+  textarea {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid $second-color;
+    border-radius: 6px;
+    background: inherit;
+    color: inherit;
+    margin: 0 auto;
+    height: 90vh;
+  }
+  .tripHeroImage {
+    max-height: 600px;
+    max-width: 100%
+  }
+  .outline {
+    background: $background;
+  }
+  .blog {
+    color: #5a5ad0;
+  }
+  button {
+    background: $second-color;
+    border: 0;
+    border-radius: 10px;
+    margin: 10px 20px;
+    color: white;
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+  .button {
+    background: $second-color;
+    border: 0;
+    padding: 3px;
+    border-radius: 10px;
+    margin: 10px 20px;
+    color: white;
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+  .hide {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+  }
+}
+
 
 .oulineCenter {
   margin: 0 auto;
