@@ -67,7 +67,178 @@ You can see how it earned its star status if you take it slow rather than "scoot
         imageHero: 'http://d56b293rhv8dp.cloudfront.net/experience_page_images/110/images/original/1.jpg?1487186156',
         imageGallery: []
       }, {
-        title: 'Rosers Summer Trip',
+        title: 'Huws Winter Markdown Trip',
+        words: `An h1 header
+============
+
+Paragraphs are separated by a blank line.
+
+2nd paragraph. *Italic*, **bold**, and \`monospace\`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+> Block quotes are
+> written like so.
+>
+> They can span multiple paragraphs,
+> if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺
+
+
+
+An h2 header
+------------
+
+Here's a numbered list:
+
+ 1. first item
+ 2. second item
+ 3. third item
+
+Note again how the actual text starts at 4 columns in (4 characters
+from the left side). Here's a code sample:
+
+    # Let me re-iterate ...
+    for i in 1 .. 10 { do-something(i) }
+
+As you probably guessed, indented 4 spaces. By the way, instead of
+indenting the block, you can use delimited blocks, if you like:
+
+~~~
+define foobar() {
+    print "Welcome to flavor country!";
+}
+~~~
+
+(which makes copying & pasting easier). You can optionally mark the
+delimited block for Pandoc to syntax highlight it:
+
+~~~python
+import time
+# Quick, count to ten!
+for i in range(10):
+    # (but not *too* quick)
+    time.sleep(0.5)
+    print i
+~~~
+
+
+
+### An h3 header ###
+
+Now a nested list:
+
+ 1. First, get these ingredients:
+
+      * carrots
+      * celery
+      * lentils
+
+ 2. Boil some water.
+
+ 3. Dump everything in the pot and follow
+    this algorithm:
+
+        find wooden spoon
+        uncover pot
+        stir
+        cover pot
+        balance wooden spoon precariously on pot handle
+        wait 10 minutes
+        goto first step (or shut off burner when done)
+
+    Do not bump wooden spoon or it will fall.
+
+Notice again how text always lines up on 4-space indents (including
+that last line which continues item 3 above).
+
+Here's a link to [a website](http://foo.bar), to a [local
+doc](local-doc.html), and to a [section heading in the current
+doc](#an-h2-header). Here's a footnote [^1].
+
+[^1]: Footnote text goes here.
+
+Tables can look like this:
+
+size  material      color
+----  ------------  ------------
+9     leather       brown
+10    hemp canvas   natural
+11    glass         transparent
+
+Table: Shoes, their sizes, and what they're made of
+
+(The above is the caption for the table.) Pandoc also supports
+multi-line tables:
+
+--------  -----------------------
+keyword   text
+--------  -----------------------
+red       Sunsets, apples, and
+          other red or reddish
+          things.
+
+green     Leaves, grass, frogs
+          and other things it's
+          not easy being.
+--------  -----------------------
+
+A horizontal rule follows.
+
+***
+
+Here's a definition list:
+
+apples
+  : Good for making applesauce.
+oranges
+  : Citrus!
+tomatoes
+  : There's no "e" in tomatoe.
+
+Again, text is indented 4 spaces. (Put a blank line between each
+term/definition pair to spread things out more.)
+
+Here's a "line block":
+
+| Line one
+|   Line too
+| Line tree
+
+and images can be specified like so:
+
+![example image](example-image.jpg "An exemplary image")
+
+Inline math equations go in like so: $\omega = d\phi / dt$. Display
+math should get its own line and be put in in double-dollarsigns:
+
+$$I = \int \rho R^{2} dV$$
+
+And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.`,
+        when: 'Winter', // Summer or Winter
+        where: 'Equator',
+        who: { adults: 2, children: 0 },
+        how: 'boat',
+        for: 2, // of days
+        createdBy: users[0],
+        authorImage: null, //users[0].authorImage,
+        legs: null,//[ legSchema ],
+        lat: 0,
+        long: -78.1,
+        imageHero: 'http://wonderopolis.org/wp-content/uploads/2016/11/Can_You_See_The_Equator1_xl_68891535_(Custom).jpg',
+        imageGallery: []
+      }, {
+        title: 'Rosers Summer Austria Trip',
         words: `Once in a while when you're travelling you come across a place you could happily call your home. For me I found this with Austria.
 
 The country is full of beautiful lakes containing crystal clear water, which runs off the mountains. This makes them a prime attraction for tourists and they are surrounded with cultured Austrian towns and cute bars and restaurants sitting next to or over the lake. Being a lover of water myself I just travelled from way lake to another on my way through from Germany to Slovenia. Albeit, they can get very busy you can also find yourself some beautiful spots just for yourself. Like here at the Traunsee Lake where I had a 'bath' next to a willow tree, or at Haltsee lake.
@@ -86,7 +257,7 @@ Traunsee Lake Faaker See lake Traunsee Lake Traunsee Lake Worthesee Lake Austria
         when: 'Summer', // Summer or Winter
         where: 'Austria',
         who: { adults: 2, children: 0 },
-        how: 'Kayak',
+        how: 'Hike',
         for: 2, // of days
         createdBy: users[1],
         authorImage: null, //users[0].authorImage,
@@ -96,7 +267,7 @@ Traunsee Lake Faaker See lake Traunsee Lake Traunsee Lake Worthesee Lake Austria
         imageHero: 'https://media.timeout.com/images/101651783/image.jpg',
         imageGallery: []
       }, {
-        title: 'Rosers Winter Trip',
+        title: 'Rosers Winter Kayak Trip',
         words: `The Svartisen glacier is the second largest in Norway and the lowest in Europe making it easy(ish) to get to. Well if you're a normal person who decides to pay to get on the boat over there instead of kayak then it's probably easier. Being the stingy travellers we are and with the budget we are on there was absolutely no way the boat was being used.
 
 The kayak over probably took us about an hour this was more because:
@@ -124,14 +295,14 @@ The whole of the glacier trip was unexpected. We had no idea there was a glacier
 
 One thing I wish I had the chance to do that day was to walk on the glacier. As I was leaving a group who were on the tour returned. This has defiantly been added to my bucket list. Check my bucket list out and feel free to share yours in the comments below I'm always looking for suggestion and ideas! `,
         when: 'Winter', // Summer or Winter
-        where: 'Austria',
+        where: 'Norway',
         who: { adults: 2, children: 0 },
-        how: 'Bicycle',
+        how: 'Kayak',
         for: 2, // of days
         createdBy: users[1],
         authorImage: null, //users[0].authorImage,
         legs: null,//[ legSchema ],
-        lat: 68.4,
+        lat: 58.4,
         long: 8.27,
         imageHero: 'https://static.wixstatic.com/media/26cb45_00bc1602f7b24cba801657423079de41~mv2_d_4032_3024_s_4_2.jpg/v1/fill/w_315,h_236,al_c,q_80,usm_2.00_1.00_0.00/26cb45_00bc1602f7b24cba801657423079de41~mv2_d_4032_3024_s_4_2.webp',
         imageGallery: ['https://static.wixstatic.com/media/26cb45_d1ce602fd3054daaaa87f6a0f19cd28e~mv2_d_4032_3024_s_4_2.jpg/v1/fill/w_871,h_653,al_c,q_90,usm_2.00_1.00_0.00/26cb45_d1ce602fd3054daaaa87f6a0f19cd28e~mv2_d_4032_3024_s_4_2.webp', 'https://static.wixstatic.com/media/26cb45_e4c9d0528b484f00a3a0161f03329c6b~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_490,h_653,al_c,q_90,usm_2.00_1.00_0.00/26cb45_e4c9d0528b484f00a3a0161f03329c6b~mv2_d_3024_4032_s_4_2.webp']

@@ -260,17 +260,6 @@ ul{
 }
 
 
-// .col-md-8 {
-//   background: green;
-// }
-// .col-md-2 {
-//   background: red;
-// }
-// .col-md-1 {
-//   background: blue;
-// }
-
-
 .clearHeader {
   height: 80px;
   background: blue;
@@ -321,10 +310,6 @@ ul{
   font-weight: 500;
 }
 
-.jumbotron {
- //background-image: url(https://wdi-25-london-project2.s3-eu-west-1.amazonaws.com/9c9b92b0-94fc-48da-bcf3-aa4243518976.png);
-}
-
 .tripDetails {
   margin: 10px 5px;
 }
@@ -332,7 +317,7 @@ ul{
 .galleryImage {
   height: 150px;
   width: 150px;
-  border: 1px solid black;
+  border: 1px solid $primary-color;
   margin: 10px;
 }
 
@@ -422,8 +407,7 @@ ul{
   }
 }
 
-// trip show page ---------------------------------------------------
-
+// trip Edit page ---------------------------------------------------
 
 .tripEdit {
   .banner {
@@ -497,12 +481,45 @@ ul{
   }
 }
 
+// login page ----------------------------------------------------------------
 
-.oulineCenter {
-  margin: 0 auto;
+.login {
+  .banner {
+    height: 100px;
+  }
+  label {
+    margin: 0;
+  }
+  input {
+    display: block;
+    margin-bottom: 15px;
+    width: 50%;
+    padding: 5px;
+    border: 2px solid $second-color;
+    border-radius: 6px;
+    background: inherit;
+    color: inherit;
+  }
+  .outline {
+    background: $background;
+  }
+  .button {
+    background: $second-color;
+    border: 0;
+    padding: 7px;
+    border-radius: 10px;
+    margin: 3px 13px;
+    color: white;
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+  .github {
+    width: 100%;
+    text-align: center;
+  }
 }
-
-
-.btn-github {
+.oulineCenter {
   margin: 0 auto;
 }

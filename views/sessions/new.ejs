@@ -1,23 +1,13 @@
 
-<div class="container-fluid">
+<div class="container-fluid login">
   <div class="row">
     <div class="col-12 clearHeader"></div>
   </div>
 
   <div class="row">
-    <div class="col-12"></div>
+    <div class="col-12 banner"></div>
   </div>
-  <div class="row">
-    <div class="col-12 clearHeader"></div>
-  </div>
-  <div class="row">
-    <div class="col-12">
 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 clearHeader"></div>
-  </div>
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
@@ -39,8 +29,9 @@
           </form>
         </div>
 
-        <a href="<%= oauth.github.getLoginURL() %>" class="btn btn-primary btn-github">Login With Github</a>
-
+        <div class="github">
+          <a href="<%= oauth.github.getLoginURL() %>" class="btn btn-primary">Login With Github</a>
+        </div>
 
         <div class="outline">
           <h1> Register</h1>
@@ -62,16 +53,12 @@
               <input type="password" name="passwordConfirmation" id="passwordConfirmation">
             </div>
 
-            <button>Register</button>
+            <button class="button">Register</button>
           </form>
         </div>
 
 
         </div>
-
-
-
-
       </div>
     <div class="col-md-1"></div>
   </div>

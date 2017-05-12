@@ -18,7 +18,7 @@ $(function () {
   function initMap() {
     var latLng = { lat: 0, lng: 0 };
     map = new google.maps.Map($map.get(0), {
-      zoom: 1,
+      zoom: 2,
       center: latLng,
       scrollwheel: false
     });
