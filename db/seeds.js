@@ -46,7 +46,7 @@ User
         where: 'London',
         who: { adults: 2, children: 0 },
         how: 'Bicycle',
-        for: Number, // of days
+        for: 3, // of days
         createdBy: users[0],
         authorImage: null, //users[0].authorImage,
         legs: null,//[ legSchema ],
@@ -61,7 +61,7 @@ User
         where: 'London',
         who: { adults: 2, children: 0 },
         how: 'Bicycle',
-        for: Number, // of days
+        for: 2, // of days
         createdBy: users[0],
         authorImage: null, //users[0].authorImage,
         legs: null,//[ legSchema ],
