@@ -1,83 +1,58 @@
 <div class="hero">
-  <img class="userImageHero" src="<%= locals.thisUser.imageHero %>">
+  <img class="userImageHero" style="background-image:url(<%= locals.thisUser.imageHero %>); background-image: contain;">
   <div class="profile">
     <img class="userImageProfile" src="<%= locals.thisUser.imageProfile %>">
   </div>
+  <div class="underImageHero">
+  </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid userShow">
 
   <div class="row">
     <div class="col-12 clearHeader"></div>
   </div>
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
 
+      <div class="outline">
+        <p>
+            username:
+            <span class="username">
+              <%= thisUser.username %>
+            </span>
+        </p>
+        <p>
+          bio:<br>
+          <%= thisUser.bio %>
+        </p>
 
+        <hr>
 
-
-
-
-
-
-        <div class="outline">
-
-
-          <p>
-            <p>
-              username:<br>
-            <%= thisUser.username %>
-            </p>
-            bio:<br>
-            <%= thisUser.bio %>
-          </p>
-
-          <hr>
-
-
-
+        <div>
+          my trips:
           <ul>
-
-
-
-
-
-
-
-
-          <div>
-            my trips:
-            <ul>
-              <% trips.forEach((trip) => { %>
-                <li class="none">
-                  <div class="tripOutline">
-                    <img class="tripIndexPicture" src="<%= trip.imageHero %>">
-                      <span class="tripTitle">title: <%= trip.title %></span>
-                    <a class="right" href="/trips/<%= trip.id %>">details</a>
-                  </div>
-                </li>
-              <% }); %>
-            </ul>
-          </div>
-
-          <% if(locals.isAuthenticated && (user.id == thisUser.id)) { %>
-            <a href="/users/<%= locals.user.id %>/edit"><button>Edit your profile</button></a>
-
-            <a href="/trips/new"><button>Add a new trip report</button></a>
-          <% } %>
-
-
+            <% trips.forEach((trip) => { %>
+              <li class="none">
+                <div class="tripOutline">
+                  <img class="tripIndexPicture" src="<%= trip.imageHero %>">
+                    <span class="tripTitle">title: <%= trip.title %></span>
+                  <a class="right" href="/trips/<%= trip.id %>">details</a>
+                </div>
+              </li>
+            <% }); %>
+          </ul>
         </div>
 
+        <% if(locals.isAuthenticated && (user.id == thisUser.id)) { %>
+          <a href="/users/<%= locals.user.id %>/edit"><button>Edit your profile</button></a>
 
-
-
-
-
-
-
+          <a href="/trips/new"><button>Add a new trip report</button></a>
+        <% } %>
       </div>
-    <div class="col-md-1"></div>
+
+    </div>
+  <div class="col-md-1"></div>
   </div>
 </div>
