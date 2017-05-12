@@ -27,7 +27,7 @@
 
         <div class="outline">
 
-          <form method="POST" action="/trips/<%= trip.id %>">
+          <form method="POST" action="/trips/<%= trip.id %>" id="edit">
             <input type="hidden" name="_method" value="PUT">
               <div>
                 <label for="title">Title?</label>
@@ -71,7 +71,9 @@
               <div>
                 <%# // this needs work%>
                 <label for="words">Write your Travel diary here:</label>
-                <input class="tripInput" type="text" name="words" id="words" value="<%= trip.words %>">
+                <textarea rows="4" cols="50" form="edit" name="words">
+                  <%= trip.words %>
+                </textarea>
               </div>
             <p>
               <button>Update</button>

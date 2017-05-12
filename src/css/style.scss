@@ -8,7 +8,7 @@ body {
 }
 
 
-header {
+.header {
   background: white;
   height: 40px;
   line-height: 40px;
@@ -36,12 +36,15 @@ header {
   }
 }
 .addButton { // the "add a trip button"
+  z-index: 2;
   background: $second-color;
   color: white;
   border: 1px solid $second-color;
   // padding: 10px 30px;
   border-radius: 10px;
   width: 260px;
+  position: relative;
+  top: 40px;
   float: right;
   text-align: center;
   margin: 5px;
@@ -51,24 +54,40 @@ header {
   }
 }
 
-.indexSearchForm {
+.indexSearch {
   z-index: auto;
   height: 50vh;
   width: 100vw;
   position: absolute;
+  background: none;
+  text-align: center;
   .indexForm {
     font-family: $main-font;
     color: $second-color;
-    font-size: 36px;
+    font-size: 35px;
     position: absolute;  // if the child is absolute
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
-    .indexFormText {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    .button {
+      background: $second-color;
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      padding:0 5px;
+    }
+    .indexFormInput {
       font-family: $main-font;
       font-size: 35px;
-      color: grey;
+      color: rgba(60, 60, 60, 1);
+      background: rgba(255, 255, 255, .5);
+      border: 1px solid $second-color;
+      border-radius: 5px;
+      padding: 0 0 0 10px;
+      width: 200px;
     }
   }
 }
@@ -100,7 +119,7 @@ header {
 .outline {
     border: 3px solid $second-color;
     min-width: 300px;
-    max-width: 600px;
+    min-width: 600px;
     padding: 30px;
     margin: 20px;
     border-radius: 15px;

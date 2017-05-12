@@ -19,9 +19,7 @@
 
   <span class="headerUserSection">
     <span class="alert">
-      <% if(locals.isAuthenticated) { %>
-        You are logged in
-      <% } else { %>
+      <% if(!locals.isAuthenticated) { %>
         you are not logged in
       <% } %>
     </span>

@@ -19,7 +19,7 @@
                 <div class="fullScreen" style="background-image:url(<%=trips[0].imageHero %>);">
                   <div class="authorInfo">
       <a href="/users/<%= trips[0].createdBy['_id'] %>"><div class="authorImage" style="background-image:url(<%=trips[0].createdBy['imageProfile']%>);"></div></a>
-                    <span class="authorImageTitle"><%=trips[0].title%></span><br>
+                    <a href="/trips/<%= trips[0]._id %>"><span class="authorImageTitle"><%=trips[0].title%></span></a><br>
                     <span class="authorImageSubTitle">by: <%=trips[0].createdBy['username']%></span>
                   </div>
               </div>

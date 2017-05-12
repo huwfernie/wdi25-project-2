@@ -1,11 +1,20 @@
 
+This is a searchable blogging site, it needs a MongoDB database to work
 
-clone from GIT
 
-NPM install
+clone the repo from GIT
 
-run mongod from terminal
+navigate to the directory in your terminal and run:
 
-run gulp from terminal
+$ NPM install
+
+You'll need MongoDB installed, then:
+
+run $ mongod from another tab in the terminal
+
+back in the first tab, after the Node packages have been installed:
+run $ gulp
+
+If that all works then you should be able to:
 
 Open browser and navigate to `http//:localhost:3000`
