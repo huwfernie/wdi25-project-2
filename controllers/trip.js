@@ -3,10 +3,34 @@ const markdown = require( 'markdown' ).markdown;
 //const showdown = require('showdown');
 
 
-
-
+// Roll back to this if it breaks again!!!!!
+// function indexRoute(req, res) {
+//   if(req.query.q === '' || !req.query.q ) {
+//     req.flash('alert', 'showing all trips');
+//     Trip
+//     .find()
+//     .exec()
+//     .then((trips) => {
+//       if(!trips) return res.notFound();
+//       res.render('trips/index', { trips });
+//     });
+//   } else {
+//     req.flash('alert', `showing trips that match "${req.query.q}"`);
+//     Trip
+//     .find({ when: req.query.q.toLowerCase() })
+//     .exec()
+//     .then((trips) => {
+//       if(!trips) return res.notFound();
+//       res.render('trips/index', { trips });
+//     })
+//     .catch((err) => {
+//       res.badRequest(500, err);
+//     });
+//   }
+// }
 function indexRoute(req, res) {
   if(req.query.q === '' || !req.query.q ) {
+    console.log('all trips');
     req.flash('alert', 'showing all trips');
     Trip
     .find()
@@ -17,21 +41,22 @@ function indexRoute(req, res) {
     });
   } else {
     req.flash('alert', `showing trips that match "${req.query.q}" and "${req.query.w}"`);
-    console.log(req.query.w);
-    let trips = [];
+    console.log(`showing trips that match "${req.query.q}" and "${req.query.w}"`);
+    // let trips = [];
     Trip
     .find({ when: req.query.q.toLowerCase() })
     .exec()
-    .then((when) => {
-      trips = trips.concat(when);
-      Trip
-      .find({ where: req.query.w.toLowerCase() })
-      .exec()
-      .then((where) => {
-        trips = trips.concat(where);
-        if(!trips) return res.notFound();
-        res.render('trips/index', { trips });
-      });
+    .then((trips) => {
+      res.render('trips/index', { trips });
+      // trips = trips.concat(when);
+      // Trip
+      // .find({ where: req.query.w.toLowerCase() })
+      // .exec()
+      // .then((where) => {
+      //   trips = trips.concat(where);
+      //   if(!trips) return res.notFound();
+      //   res.render('trips/index', { trips });
+      // });
     })
     .catch((err) => {
       res.badRequest(500, err);

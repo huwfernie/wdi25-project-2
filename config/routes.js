@@ -25,10 +25,10 @@ router.route('/logout')
 //----------------------------------------
 // Trips
 router.route('/trips')
-  .get(trip.index)
+  .get(trip.index) // used in trips show (all) and in _indexSearchForm (with query string)
   .post(secureRoute, trip.create);  // save the write new data
 
-router.route('/trips/map')
+router.route('/trips/map') // used in _indexSearchForm
   .get(trip.map);
 
 router.route('/trips/new')
