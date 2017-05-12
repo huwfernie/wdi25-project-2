@@ -62,7 +62,7 @@ User
         who: { adults: 2, children: 0 },
         how: 'Bicycle',
         for: 2, // of days
-        createdBy: users[0],
+        createdBy: users[1],
         authorImage: null, //users[0].authorImage,
         legs: null,//[ legSchema ],
         lat: 51.5,

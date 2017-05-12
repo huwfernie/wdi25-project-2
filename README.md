@@ -12,8 +12,16 @@ You'll need MongoDB installed, then:
 
 run $ mongod from another tab in the terminal
 
-back in the first tab, after the Node packages have been installed:
-run $ gulp
+
+back in the first terminal tab, after the Node packages have been installed:
+
+populate the database by running:
+
+$ node db/seeds
+
+then run:
+
+$ gulp
 
 If that all works then you should be able to:
 
