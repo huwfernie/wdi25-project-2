@@ -29,7 +29,7 @@ const markdown = require( 'markdown' ).markdown;
 //   }
 // }
 function indexRoute(req, res) {
-  if(req.query.q === '' || !req.query.q ) {
+  if ((req.query.q === '' || !req.query.q) && (req.query.w === '' || !req.query.w)) {
     console.log('all trips');
     req.flash('alert', 'showing all trips');
     Trip
@@ -42,21 +42,24 @@ function indexRoute(req, res) {
   } else {
     req.flash('alert', `showing trips that match "${req.query.q}" and "${req.query.w}"`);
     console.log(`showing trips that match "${req.query.q}" and "${req.query.w}"`);
-    // let trips = [];
+    let trips = [];
     Trip
-    .find({ when: req.query.q.toLowerCase() })
+    .find({ where: req.query.w })
     .exec()
-    .then((trips) => {
-      res.render('trips/index', { trips });
-      // trips = trips.concat(when);
-      // Trip
-      // .find({ where: req.query.w.toLowerCase() })
-      // .exec()
-      // .then((where) => {
-      //   trips = trips.concat(where);
-      //   if(!trips) return res.notFound();
-      //   res.render('trips/index', { trips });
-      // });
+    .then((first) => {
+      console.log(first.length);
+      trips = trips.concat(first);
+      console.log('now we have ', trips.length);
+      Trip
+      .find({ when: req.query.q.toLowerCase() })
+      .exec()
+      .then((when) => {
+        console.log(when.length);
+        trips = trips.concat(when);
+        console.log('final count ', trips.length);
+        if(!trips) return res.notFound();
+        res.render('trips/index', { trips });
+      });
     })
     .catch((err) => {
       res.badRequest(500, err);
@@ -65,7 +68,7 @@ function indexRoute(req, res) {
 }
 
 function mapRoute(req, res) {
-  if(req.query.q === '' || !req.query.q ) {
+  if ((req.query.q === '' || !req.query.q) && (req.query.w === '' || !req.query.w)) {
     req.flash('alert', 'showing all trips');
     Trip
     .find()

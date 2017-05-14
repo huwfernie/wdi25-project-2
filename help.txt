@@ -1,0 +1,8 @@
+
+When you deploy to Heroiu...
+
+**
+git push heroku master
+heroku run node db/seeds
+**
+

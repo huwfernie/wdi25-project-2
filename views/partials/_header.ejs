@@ -1,16 +1,16 @@
 <div class="header">
 
-  <a class="headerLink" href="/">Index</a>
+  <a class="headerLink" href="/">Home</a>
   <a class="headerLink" href="/trips/map">Map</a>
-  <a class="headerLink" href="/trips">trips</a>
+  <a class="headerLink" href="/trips">Trips</a>
 
 
 
 
   <% if(locals.isAuthenticated) { %>
-    <a class="headerLink" href="/logout">logout</a>
-    <a class="headerLink" href="/users/<%= user.id %>">Your profile page</a>
-    <a class="headerLink" href="/trips/new">trips-new</a>
+    <a class="headerLink" href="/logout">Logout</a>
+    <a class="headerLink" href="/users/<%= user.id %>">My Page</a>
+    <a class="headerLink" href="/trips/new">New Trip</a>
   <% } else { %>
     <a class="headerLink" href="/login">Login or Register</a>
   <% } %>
