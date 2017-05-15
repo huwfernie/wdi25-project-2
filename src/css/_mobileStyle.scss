@@ -232,6 +232,10 @@
     opacity: 0;
   }
 
+  .banner {
+    height: 0;
+  }
+
   .searchTerms {
     height: 100px;
     line-height: 100px;
@@ -243,16 +247,17 @@
     color: white;
     text-align: center;
     min-height: 20px;
-    padding: 5px 10px;
-    font-size: 15px;
+    padding: 5px 3px;
+    font-size: 10px;
+    margin: 0 -15px;
   }
 
   .tripOutline {
     border: 3px solid $second-color;
     min-width: 90%;
     max-width: 100%;
-    padding: 30px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
     border-radius: 15px;
   }
 
@@ -268,7 +273,7 @@
   }
 
   .tripTitle {
-    margin-left: 20px;
+    margin-left: 5px;
     text-transform: capitalize;
     letter-spacing: 1px;
     color: $second-color;

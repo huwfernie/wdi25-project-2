@@ -265,7 +265,7 @@ Traunsee Lake Faaker See lake Traunsee Lake Traunsee Lake Worthesee Lake Austria
         lat: 51.5,
         long: -0.12,
         imageHero: 'https://media1.britannica.com/eb-media/20/191120-004-AD2A2694.jpg',
-        imageGallery: ['http://adventurouskate.smugmug.com/Travel/Innsbruck-August-2010/i-4JnDLL4/0/M/IMG4493-M.jpg','http://www.kevinandamanda.com/whatsnew/travel/vienna-austria.html/attachment/vienna-austria-02']
+        imageGallery: ['http://adventurouskate.smugmug.com/Travel/Innsbruck-August-2010/i-4JnDLL4/0/M/IMG4493-M.jpg','https://blog.travelcenter.uk/wp-content/uploads/2016/05/Top-Rated-Tourist-Attractions-in-Austria-Travel-Center-UK-Blog-e1461586449471-821x400.jpg']
       }, {
         title: 'Rosers Winter Kayak Trip',
         words: `The Svartisen glacier is the second largest in Norway and the lowest in Europe making it easy(ish) to get to. Well if you're a normal person who decides to pay to get on the boat over there instead of kayak then it's probably easier. Being the stingy travellers we are and with the budget we are on there was absolutely no way the boat was being used.

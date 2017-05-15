@@ -233,6 +233,9 @@ ul{
   opacity: 0;
 }
 
+.banner {
+  height: 40px;
+}
 .searchTerms {
   height: 100px;
   line-height: 100px;
@@ -510,6 +513,13 @@ ul{
     width: 90%;
     border: 1px solid $primary-color;
   }
+}
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 // Media Query to make it responsive .....

@@ -52,7 +52,7 @@
               <% }); %>
           </div>
 
-          <div class="tripOutline">
+          <div class="tripOutline clearfix">
             <img class="tripIndexPicture" src="<%= trip.createdBy['imageProfile'] %>">
               <span class="tripTitle">Written by: <%= trip.createdBy['username'] %></span>
             <a class="right" href="/users/<%= trip.createdBy['_id'] %>">View Profile</a>

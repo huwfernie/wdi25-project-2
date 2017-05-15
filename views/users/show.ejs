@@ -35,7 +35,7 @@
           <ul>
             <% trips.forEach((trip) => { %>
               <li class="none">
-                <div class="tripOutline">
+                <div class="tripOutline clearfix">
                   <img class="tripIndexPicture" src="<%= trip.imageHero %>">
                     <span class="tripTitle">title: <%= trip.title %></span>
                   <a class="right" href="/trips/<%= trip.id %>">details</a>
