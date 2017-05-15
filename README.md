@@ -25,7 +25,8 @@ I never came up with a name for this website! The idea was for it to host many d
 
 ![Homepage](./src/images/blog-readme-1.png)
 
-####Approach / How it works
+
+#### Approach / How it works
 
 Users create accounts that have facebook/twitter style profile pages. Once they are registered they can add their own travel diaries/blogs. If you do not register you can still search and view blogs and profile pages.
 
@@ -33,7 +34,8 @@ When you write a blog you can ad some formatting in markdown as you go. Blogs ar
 
 ![profile](./src/images/blog-readme-2.png)
 
-####The build
+
+#### The build
 
 * HTML 5, SCSS, Bootstrap are served with Node.js and a MongoDB.
 * The desktop version was styled with reference to Airbnb and instructables.
@@ -42,6 +44,7 @@ When you write a blog you can ad some formatting in markdown as you go. Blogs ar
 * Google Maps is used to plot each blog.
 
 ![blog](./src/images/blog-readme-3.png)
+
 
 #### Problems & Challenges
 
