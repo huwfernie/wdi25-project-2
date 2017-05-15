@@ -19,7 +19,7 @@ Open browser and navigate to `http//:localhost:3000`
 
 # Blogging site:
 
-###GA WDI London - Project 2
+### GA WDI London - Project 2
 
 I never came up with a name for this website! The idea was for it to host many different adventure and travel blogs, and to be easily searchable, partly because it is nice to read other blogs, but also to provide inspiration and education for would be adventurers.
 
