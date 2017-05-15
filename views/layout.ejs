@@ -14,14 +14,6 @@
       <% include ./partials/_header %>
     </nav>
 
-
-    <% for(const type in messages) { %>
-      <div class="<%= type %>">
-        <h5>a message here<%= messages[type] %></h5>
-      </div>
-    <% } %>
-
-
     <main>
       <%- body %>
     </main>

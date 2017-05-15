@@ -4,23 +4,16 @@
     <img class="userImageProfile" src="<%= user.imageProfile %>">
   </div>
 </div>
-
-
-
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-10">
-
-
-
+      <div class="col-md-10 userEdit">
 
         <div class="outline">
           <h1>Edit</h1>
 
-          <div class="outline">
-            <h3>Update strings</h3>
+          <div>
 
-            <form method="POST" action="/users/<%= user.id %>/edit">
+            <form method="POST" action="/users/<%= user.id %>/edit" id="edit">
               <input type="hidden" name="_method" value="PUT">
               <div>
                 <label for="username">username</label>
@@ -28,7 +21,8 @@
               </div>
               <div>
                 <label for="bio">Bio</label>
-                <input class="tripInput" type="text" name="bio" id="bio" value="<%= user.bio %>">
+                <%# Don't change the spacing on the line below! between textarea and itself %>
+                <textarea rows="4" cols="50" form="edit" name="bio" placeholder="Write a little about yourself..."></textarea>
               </div>
               <div>
                 <label for="nearestAirport">nearest airport</label>
@@ -61,7 +55,7 @@
             </form>
           </div>
 
-          <div class="outline">
+          <div style="text-align:center;">
             <form action="/users/<%= user.id %>" method="POST">
               <input type="hidden" name="_method" value="DELETE">
               <p>

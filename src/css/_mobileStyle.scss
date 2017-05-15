@@ -1,0 +1,495 @@
+// Media Query to make it responsive .....
+@media all and (max-width: 520px) {
+
+  body {
+    background-color: white;
+    color: $text-color;
+    font-family: $main-font;
+  }
+
+
+  .header {
+    background: #e09999;
+    // background: #ffffff;
+    height: 46px;
+    line-height: 23px;
+    padding: 0px;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: 5;
+    .headerUserSection {
+      float: right;
+    }
+    .headerLink {
+      font-size: 16px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      padding-left: 8px;
+      color: $primary-color;
+      &:hover {
+        text-decoration: none;
+        color: $second-color;
+      }
+    }
+  }
+  .addButton { // the "add a trip button"
+    z-index: 2;
+    background: $second-color;
+    color: white;
+    border: 1px solid $second-color;
+    // padding: 10px 30px;
+    border-radius: 10px;
+    width: 170px;
+    position: relative;
+    top: 43px;
+    float: right;
+    text-align: center;
+    margin: 5px;
+    &:hover{
+      background: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+
+  .indexSearch {
+    z-index: auto;
+    height: 50vh;
+    width: 100vw;
+    position: absolute;
+    background: none;
+    text-align: center;
+    .indexForm {
+      font-family: $main-font;
+      color: $second-color;
+      font-size: 20px;
+      position: absolute;  // if the child is absolute
+      bottom: 0;
+      color: white;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      .button {
+        background: $second-color;
+        color: white;
+        border: 0;
+        border-radius: 5px;
+        padding:0 5px;
+      }
+      .indexFormInput {
+        font-family: $main-font;
+        font-size: 20px;
+        color: rgba(60, 60, 60, 1);
+        background: rgba(255, 255, 255, .5);
+        border: 1px solid $second-color;
+        border-radius: 5px;
+        padding: 0 0 0 10px;
+        width: 90%;
+      }
+    }
+  }
+
+
+
+  .indexCarouselLayer {
+    z-index: auto;
+    height: 50vh;
+    width: 100vw;
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
+    background-position: center;
+    background-size: cover;
+    //position: relative;  //the parent has to be relative
+    h1 {
+      font-size: 36px;
+      position: absolute;  // if the child is absolute
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+  }
+
+
+  // --------------------------------- still Index Page style ---------------
+
+
+  .outline {
+      border: 3px solid $second-color;
+      min-width: 90%;
+      width: 100%;
+      padding: 3px;
+      margin: 2px;
+      border-radius: 15px;
+    }
+
+  .fullScreen {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+  }
+
+  .alert {
+    box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
+    -webkit-box-shadow: inset 0 0px 0px rgba(255,255,255,.25), 0 0px 0px rgba(0,0,0,.05);
+    color: $second-color;
+    padding: 0 20px;
+    display: none;
+  }
+
+  #hero {
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../assets/images/hero-image.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;  //the parent has to be relative
+    h1 {
+      font-size: 36px;
+      position: absolute;  // if the child is absolute
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+    .authorInfo {
+      position: absolute;
+      top: 70%;
+      left: 0%;
+      border-radius: 20px;
+      width: 100%;
+      font-family: $main-font;
+      color: $second-color;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+      background: rgba(255,255,255,.5);
+    }
+    .authorImage {
+      z-index: 20;
+      height: 70px;
+      width: 70px;
+      border: 2px solid white;
+      background-position: center;
+      background-size: cover;
+      float: left;
+      border-radius: 20px;
+    }
+    .authorImageTitle {
+      padding-left: 10px;
+    }
+    .authorImageSubTitle {
+      padding-left: 40px;
+      font-size: 20px;
+    }
+  }
+
+
+  .img-huw-large {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    float: left;
+  }
+
+  // End of Index styling ---------------------------------------------------
+  // start of map page styling ---------------------------------------------------
+  #map {
+    height: 60vh;
+    width: 100%;
+   }
+
+  .mapContainer {
+    position: absolute;  // if the child is absolute
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: inherit;
+    width: 70vw;
+  }
+
+  // End of map styling ---------------------------------------------------
+  // start of trips/index page styling ------------------------------------------
+
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    li {
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+
+  .clearHeader {
+    height: 80px;
+    background: blue;
+    opacity: 0;
+  }
+
+  .searchTerms {
+    height: 100px;
+    line-height: 100px;
+  }
+
+  .tripIndexButton {
+    background: $primary-color;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    min-height: 20px;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  .tripOutline {
+    border: 3px solid $second-color;
+    min-width: 90%;
+    max-width: 100%;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+  }
+
+  .tripIndexPicture {
+    width: 75px;
+    height: 75px;
+    border: 0px solid black;
+    border-radius: 10px;
+  }
+
+  .right {
+    float: right
+  }
+
+  .tripTitle {
+    margin-left: 20px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    color: $second-color;
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+  }
+
+  .tripDetails {
+    margin: 10px 5px;
+  }
+
+  .galleryImage {
+    height: 150px;
+    width: 150px;
+    border: 1px solid $primary-color;
+    margin: 10px;
+  }
+
+
+  // the new trip page ---------------------------------------------------
+
+  .tripInput {
+    display: block;
+    width: 90%;
+    min-height: 200px;
+  }
+
+
+  // public user/show page ---------------------------------------------------
+
+  .hero {
+    border: 0px solid black;
+    position: relative;
+    padding: -15px;
+  }
+
+  .userImageHero {
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+  }
+
+  .userImageProfile {
+    height: 110px;
+    width: 110px;
+    position: absolute;  // if the child is absolute
+    bottom: 10px;
+    left: 30px;
+    border: 5px solid #f5f8fa;
+    border-radius: 10px;
+  }
+
+  .underImageHero {
+    width: 100%;
+    height: 60px;
+    background-color: #61bfbf;
+  }
+
+  .userShow {
+    button {
+      background: $second-color;
+      border: 0;
+      border-radius: 10px;
+      margin: 20px;
+      color: white;
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+    .username {
+      font-weight: 600;
+    }
+  }
+
+  // trip show page ---------------------------------------------------
+
+  .tripShow {
+    .banner {
+      height: 50px;
+    }
+    .tripHeroImage {
+      max-height: 600px;
+      max-width: 100%
+    }
+    .outline {
+      background: $background;
+    }
+    .blog {
+      color: #5a5ad0;
+    }
+    button {
+      background: $second-color;
+      border: 0;
+      border-radius: 10px;
+      margin: 0 20px;
+      color: white;
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+  }
+
+  // trip Edit page ---------------------------------------------------
+
+  .tripEdit {
+    .banner {
+      height: 50px;
+    }
+    label {
+      margin: 0;
+    }
+    input {
+      display: block;
+      margin-bottom: 15px;
+      width: 100%;
+      padding: 5px;
+      border: 2px solid $second-color;
+      border-radius: 6px;
+      background: inherit;
+      color: inherit;
+    }
+    textarea {
+      display: block;
+      margin-bottom: 15px;
+      width: 100%;
+      padding: 5px;
+      border: 2px solid $second-color;
+      border-radius: 6px;
+      background: inherit;
+      color: inherit;
+      margin: 0 auto;
+      height: 90vh;
+    }
+    .tripHeroImage {
+      max-height: 600px;
+      max-width: 100%
+    }
+    .outline {
+      background: $background;
+    }
+    .blog {
+      color: #5a5ad0;
+    }
+    button {
+      background: $second-color;
+      border: 0;
+      border-radius: 10px;
+      margin: 10px 20px;
+      color: white;
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+    .button {
+      background: $second-color;
+      border: 0;
+      padding: 3px;
+      border-radius: 10px;
+      margin: 10px 20px;
+      color: white;
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+    .hide {
+  	width: 0.1px;
+  	height: 0.1px;
+  	opacity: 0;
+  	overflow: hidden;
+  	position: absolute;
+  	z-index: -1;
+    }
+  }
+
+  // login page ----------------------------------------------------------------
+
+  .login {
+    width: 100vw;
+    .banner {
+      height: 50px;
+    }
+    label {
+      margin: 0;
+    }
+    input {
+      display: block;
+      margin-bottom: 15px;
+      width: 90%;
+      padding: 5px;
+      border: 2px solid $second-color;
+      border-radius: 6px;
+      background: inherit;
+      color: inherit;
+    }
+    .outline {
+      background: $background;
+      min-width: 90%;
+    }
+    .button {
+      background: $second-color;
+      border: 0;
+      padding: 7px;
+      border-radius: 10px;
+      margin: 3px 13px;
+      color: white;
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+    .github {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .oulineCenter {
+    margin: 0 auto;
+  }
+}
